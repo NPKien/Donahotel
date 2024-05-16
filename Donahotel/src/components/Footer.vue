@@ -1,11 +1,14 @@
 <template >
     <div class="footer-top">
-      <table>
-        <td ></td>
-        <td style="padding-left: 12px; padding-right: 2px;"></td>
-        <td></td>
-        <td></td>
+      <table style="width: 100%;height: 100%;">
+        <tr>
+          <td style="border-right-width: 1px; border-right-style: solid; border-right-color: rgb(134, 121, 89);"></td>
+          <td style="width: 20%;border-right-width: 1px; border-right-style: solid; border-right-color: rgb(134, 121, 89);"></td>
+          <td style="width: 20%;border-right-width: 1px; border-right-style: solid; border-right-color: rgb(134, 121, 89);"></td>
+          <td width="35%"></td>
+        </tr>
       </table>
+
     </div>
     <footer class="footer">
       <div class="container">

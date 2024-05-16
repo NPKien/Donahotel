@@ -1,7 +1,8 @@
 <template>
   <header class="header">
     <nav class="nav-wrapper">
-      <img class="logo" src="./picture/logo.png" alt="Logo">
+      
+      <a href="http://localhost:5173/"><img class="logo" src="./picture/logo.png" alt="Logo"></a>
       <button><a href="http://localhost:5173/">Trang chủ</a></button>
       <a class="nav-link" href="http://localhost:5173/">Phòng</a>
       <a class="nav-link" href="http://localhost:5173">Đặt phòng</a>
@@ -46,6 +47,8 @@ export default {
   width: 260px;
   height: auto;
   margin-left: 2cm;
+  position: relative;
+  top: 0.5cm;
 }
 
 button {
@@ -53,7 +56,7 @@ button {
   border: none;
   height: 90px;
   width: 90px;
-  margin-left: 10cm; /* Adjust this to position the button correctly */
+  
 }
 
 a {
