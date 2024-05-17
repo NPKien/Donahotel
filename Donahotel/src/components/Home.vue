@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" v-aos="{ offset: 1000, delay: 300, duration: 1500, easing: 'ease', once: true }">
       <div class="imformation">
         <div class="container">
           <span style="font-weight: bold;">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
@@ -10,9 +10,9 @@
         <img src="./picture/Donahotel.jpg" alt="" class="picdonahotel">
       </div>
       <span class="heading">Các loại phòng</span>
-      <div class="product-container" data-aos="fade-left">
+      <div class="product-container" >
         <div class="product">
-          <div class="image-container">
+          <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
             <img src="./picture/phongloai1a.jpg" alt="Product Image">
           </div>
           <div class="details">
@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="product">
-          <div class="image-container">
+          <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
             <img src="./picture/phongloai1a.jpg" alt="Product Image">
           </div>
           <div class="details">
@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="product">
-          <div class="image-container">
+          <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
             <img src="./picture/phongloai1a.jpg" alt="Product Image">
           </div>
           <div class="details">
@@ -39,9 +39,9 @@
           </div>
         </div>
       </div>
-      <div class="product-container" data-aos="fade-right">
+      <div class="product-container"  >
         <div class="product">
-          <div class="image-container">
+          <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
             <img src="./picture/phongloai1a.jpg" alt="Product Image">
           </div>
           <div class="details">
@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="product">
-          <div class="image-container">
+          <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
             <img src="./picture/phongloai1a.jpg" alt="Product Image">
           </div>
           <div class="details">
@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="product">
-          <div class="image-container">
+          <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
             <img src="./picture/phongloai1a.jpg" alt="Product Image">
           </div>
           <div class="details">
@@ -69,8 +69,8 @@
         </div>
       </div>
       <span class="heading">Dịch vụ</span>
-      <div class="service" data-aos="fade-left">
-      <div class="home-room-img" @mouseover="darkenImage" @mouseout="lightenImage">
+      <div class="service" >
+      <div class="home-room-img" @mouseover="darkenImage" @mouseout="lightenImage" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true">
         <span class="room-title">Dịch Vụ Nhà Hàng</span>
         <img width="360" height="250" src="./picture/dichvu.jpg" class="img-responsive">
         <div class="showcase-inner">
@@ -84,7 +84,7 @@
   </div>  
   <span class="heading">Liên Hệ Đặt Phòng</span>
   <div>
-    <form class="formdatphong" action="" data-aos="fade-down">
+    <form class="formdatphong" action="" data-aos="fade-down" data-aos-anchor-placement="bottom-bottom" data-aos-once="true">
       <span class="heading1">Thông Tin Đặt Phòng</span><br>
       <span class="heading2">Ngày đến <br></span>
       <input type="date" name="ngayden" id="ngayden" class="inputf" >
