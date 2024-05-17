@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+  <div class="home">
       <div class="imformation">
         <div class="container">
           <span style="font-weight: bold;">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
@@ -9,7 +9,8 @@
       <div>
         <img src="./picture/Donahotel.jpg" alt="" class="picdonahotel">
       </div>
-      <div class="product-container">
+      <span class="heading">Các loại phòng</span>
+      <div class="product-container" data-aos="fade-left">
         <div class="product">
           <div class="image-container">
             <img src="./picture/phongloai1a.jpg" alt="Product Image">
@@ -38,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="product-container">
+      <div class="product-container" data-aos="fade-right">
         <div class="product">
           <div class="image-container">
             <img src="./picture/phongloai1a.jpg" alt="Product Image">
@@ -67,7 +68,8 @@
           </div>
         </div>
       </div>
-      <div class="service" >
+      <span class="heading">Dịch vụ</span>
+      <div class="service" data-aos="fade-left">
       <div class="home-room-img" @mouseover="darkenImage" @mouseout="lightenImage">
         <span class="room-title">Dịch Vụ Nhà Hàng</span>
         <img width="360" height="250" src="./picture/dichvu.jpg" class="img-responsive">
@@ -79,10 +81,46 @@
           </div>
         </div>
     </div>
+  </div>  
+  <span class="heading">Liên Hệ Đặt Phòng</span>
+  <div>
+    <form class="formdatphong" action="" data-aos="fade-down">
+      <span class="heading1">Thông Tin Đặt Phòng</span><br>
+      <span class="heading2">Ngày đến <br></span>
+      <input type="date" name="ngayden" id="ngayden" class="inputf" >
+      <span class="heading2">Ngày đi <br></span>
+      <input type="date" name="ngayden" id="ngayden" class="inputf" ><br>
+      <span class="heading2">Loại phòng</span><br>
+      <div class="dropdown-container">
+          <select id="room-type" v-model="selectedRoomType">
+            <option v-for="option in roomOptions" :key="option.value" :value="option.value">
+              {{ option.text }}
+            </option>
+          </select>
+      </div><br>
+      <span class="heading2">Số lượng</span><br>
+      <div class="dropdown-container">
+          <select id="room-type" v-model="quantity">
+            <option v-for="option in quantityOptions" :key="option.value" :value="option.value">
+              {{ option.text }}
+            </option>
+          </select>
       </div>
-      
-</div>
-  </template>
+      <br>
+      <span class="heading1">Thông tin khách hàng</span><br>
+      <span class="heading2">Tên của bạn (bắt buộc)</span><br>
+      <input type="text" class="inputf"><br>
+      <span class="heading2">Số Điện Thoại (bắt buộc)</span><br>
+      <input type="text" class="inputf"><br>
+      <span class="heading2">Địa chỉ Email</span><br>
+      <input type="text" class="inputf"><br>
+      <span class="heading2">Ghi Chú</span><br>
+      <input type="text" class="inputf"><br>
+      <button class="btsent">Gửi đi</button>
+    </form>
+  </div>
+  </div>
+</template>
   
   
 <script>
@@ -97,13 +135,34 @@
             document.querySelector('.home-room-img img').style.filter = 'brightness(100%)';
             document.querySelector('.room-title').style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
         },
+    }, 
+    data() {
+        return {
+         selectedRoomType: '',
+         roomOptions: [
+          { value: 'vip1', text: 'Phòng VIP 1' },
+          { value: 'vip2', text: 'Phòng VIP 2' },
+          { value: 'type1', text: 'Phòng loại 1' },
+          { value: 'type2', text: 'Phòng loại 2' },
+          { value: 'type2_other', text: 'Phòng loại 2(khác)' }
+        ],
+        quantity: '',
+        quantityOptions: [
+          { value: '1', text: 1 },
+          { value: '2', text: 2 },
+          { value: '3', text: 3 },
+          { value: '4', text: 4 },
+          { value: '5', text: 5 },
+          { value: '6', text: 6 }
+        ]
+      };
     }
   }
 
 </script>
   
 <style scoped>
-    .home {
+.home {
   width: 100vw;
   position: relative;
   left: -100px;
@@ -131,6 +190,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
 .product {
@@ -173,6 +233,7 @@
 .home-room-img {
   position: relative;
   filter: brightness(100%);
+  overflow: hidden;
 }
 
 .room-title {
@@ -229,6 +290,41 @@
 
 .home-room-img:hover img {
   transform: scale(1.1);
+}
+.formdatphong{
+  padding: 30px;
+  background: #fff;
+  box-shadow: 1px 4px 16px 3px rgba(199, 197, 199, 1);
+  width: 40%;
+  position: relative;left: 30%;
+}
+.heading{
+  font-size: 30px;
+  color: #000000;
+  position: relative;
+  left:40%;
+  font-weight: 300;
+}
+.heading1{
+  font-size: 18px;
+  color: #2F353E;
+  font-weight:500;
+}
+.heading2{
+  font-size: 18px;
+  color: #2F353E;
+}
+.inputf{
+  width: 100%;
+  height: 1.2cm;
+}
+.btsent{
+  padding: 10px 20px;
+  background: #a29060;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  margin-top: 20px;
 }
 </style>
   
