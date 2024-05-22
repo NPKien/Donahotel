@@ -1,4 +1,5 @@
-<template >
+<template>
+  <div>
     <div class="footer-top">
       <table style="width: 100%;height: 100%;">
         <tr>
@@ -8,7 +9,6 @@
           <td width="35%"></td>
         </tr>
       </table>
-
     </div>
     <footer class="footer">
       <div class="container">
@@ -18,11 +18,11 @@
               <td>
                 <div class="col">
                   <p>Chuyên mục</p>
-                  <p>Booking</p>
-                  <p>Dịch vụ</p>
-                  <p>Giới Thiệu</p>
-                  <p>Liên Hệ</p>
-                  <p>Phòng</p>
+                  <p @click.prevent="scrollToSection('section2')">Booking</p>
+                  <p @click.prevent="scrollToSection('section4')">Dịch vụ</p>
+                  <p @click.prevent="redirectToIntroductionPage">Giới Thiệu</p>
+                  <p @click.prevent="scrollToSection('section5')" >Liên Hệ</p>
+                  <p @click.prevent="scrollToSection('section1')">Phòng</p>
                 </div>
               </td>
               <td>
@@ -33,29 +33,28 @@
               <td>
                 <div class="col">
                   <p>Bài viết mới</p>
-                  <p>Giới Thiệu</p>
-                  <p>Liên Hệ</p>
-                  <p>Đặt Phòng</p>
+                  <p @click.prevent="redirectToIntroductionPage">Giới Thiệu</p>
+                  <p @click.prevent="scrollToSection('section5')">Liên Hệ</p>
+                  <p @click.prevent="scrollToSection('section2')">Đặt Phòng</p>
                   <p>PHÒNG VIP 1</p>
-                  <p>Dịch Vụ Nhà Hàng</p>
+                  <p @click.prevent="scrollToSection('section4')">Dịch Vụ Nhà Hàng</p>
                 </div>
               </td>
               <td>
                 <div class="col">
                   <p>CHÍNH SÁCH CÔNG TY</p>
-                  <p>Hình thức đặt phòng</p>
-                  <p>Hình thức thanh toán</p>
+                  <p @click.prevent="scrollToSection('section2')">Hình thức đặt phòng</p>
+                  <p @click.prevent="scrollToSection('section5')">Hình thức thanh toán</p>
                   <p>Bảo mật thông tin khách hàng</p>
-                  <p>Hotline liên hệ</p>
+                  <p @click.prevent="scrollToSection('section5')">Hotline liên hệ</p>
                   <p><img src="./picture/phoneicon.png" alt="Phone Icon" class="phone-icon"> 0292 3763 333</p>
                   <br><br>
                 </div>
               </td>
             </tr>
-            
             <tr>
               <td>
-                <div class="col" >
+                <div class="col">
                   <p>HỆ THỐNG KHÁCH SẠN</p>
                   <p>Khách sạn độc quyền duy nhất</p>
                   <p>Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP. Cần Thơ, Việt Nam</p>
@@ -75,16 +74,29 @@
     <div class="footer-bot">
       <br><br>
     </div>
+  </div>
 </template>
 
 <script>
+import { scrollMixin } from './mixin/scrollMixin';
+
 export default {
-  name: 'Footer'
-}
+  name: 'Footer',
+  mixins: [scrollMixin],
+  data() {
+    return {
+      isVisible: false
+    };
+  }, methods: {
+    redirectToIntroductionPage() {
+      const url = `http://localhost:5173/introduce`;
+        window.location.href = url;
+    }
+  }
+};
 </script>
 
 <style scoped>
-
 .footer {
   background-color: #202021;
   width: 100vw;
@@ -92,8 +104,8 @@ export default {
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
-  position:relative;
-  left:-100px;
+  position: relative;
+  left: -100px;
   bottom: 0;
 }
 .footer-bot {
@@ -103,8 +115,8 @@ export default {
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
-  position:relative;
-  left:-100px;
+  position: relative;
+  left: -100px;
   bottom: 0;
 }
 .footer-top {
@@ -114,8 +126,8 @@ export default {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  position:relative;
-  left:-100px;
+  position: relative;
+  left: -100px;
   bottom: 0;
 }
 .container {
@@ -163,5 +175,4 @@ p {
 td {
   vertical-align: top;
 }
-
 </style>

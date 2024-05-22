@@ -9,32 +9,33 @@
       <div>
         <img src="./picture/Donahotel.jpg" alt="" class="picdonahotel">
       </div>
-      <span class="heading">Các loại phòng</span>
+      <span class="heading">Các loại phòng</span> <br>
+      <br>
       <div class="product-container" >
         <div class="product">
           <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
             <img src="./picture/phongloai1a.jpg" alt="Product Image">
           </div>
           <div class="details">
-            Tên sản phẩm
+            <span style="position: relative; left: -2cm;">Phòng loại 1a </span>
             <button class="btn">Xem chi tiết</button>
           </div>
         </div>
         <div class="product">
           <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
-            <img src="./picture/phongloai1a.jpg" alt="Product Image">
+            <img src="./picture/phongloai1b.jpg" alt="Product Image">
           </div>
           <div class="details">
-            Tên sản phẩm
+            <span style="position: relative; left: -2cm;">Phòng loại 1b </span>
             <button class="btn">Xem chi tiết</button>
           </div>
         </div>
         <div class="product">
           <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
-            <img src="./picture/phongloai1a.jpg" alt="Product Image">
+            <img src="./picture/phongvip1.jpg" alt="Product Image">
           </div>
           <div class="details">
-            Tên sản phẩm
+            <span style="position: relative; left: -2cm;">Phòng Vip 1 </span>
             <button class="btn">Xem chi tiết</button>
           </div>
         </div>
@@ -42,33 +43,33 @@
       <div class="product-container"  >
         <div class="product">
           <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-            <img src="./picture/phongloai1a.jpg" alt="Product Image">
+            <img src="./picture/phongloai2a.jpg" alt="Product Image">
           </div>
           <div class="details">
-            Tên sản phẩm
+            <span style="position: relative; left: -2cm;">Phòng loại 2a </span>
             <button class="btn">Xem chi tiết</button>
           </div>
         </div>
         <div class="product">
           <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-            <img src="./picture/phongloai1a.jpg" alt="Product Image">
+            <img src="./picture/phongloai2b.jpg" alt="Product Image">
           </div>
           <div class="details">
-            Tên sản phẩm
+            <span style="position: relative; left: -2cm;">Phòng loại 2b </span>
             <button class="btn">Xem chi tiết</button>
           </div>
         </div>
         <div class="product">
           <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-            <img src="./picture/phongloai1a.jpg" alt="Product Image">
+            <img src="./picture/phongvip2.jpg" alt="Product Image">
           </div>
           <div class="details">
-            Tên sản phẩm
+            <span style="position: relative; left: -2cm;">Phòng Vip 2 </span>
             <button class="btn">Xem chi tiết</button>
           </div>
         </div>
       </div>
-      <span class="heading">Dịch vụ</span>
+      <span class="heading">Dịch vụ</span><br><br>
       <div class="service" >
       <div class="home-room-img" @mouseover="darkenImage" @mouseout="lightenImage" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true">
         <span class="room-title">Dịch Vụ Nhà Hàng</span>
@@ -82,84 +83,106 @@
         </div>
     </div>
   </div>  
-  <span class="heading">Liên Hệ Đặt Phòng</span>
+  <span class="heading">Liên Hệ Đặt Phòng</span> <br><br>
   <div>
-    <form class="formdatphong" action="" data-aos="fade-down" data-aos-anchor-placement="bottom-bottom" data-aos-once="true">
-      <span class="heading1">Thông Tin Đặt Phòng</span><br>
-      <span class="heading2">Ngày đến <br></span>
-      <input type="date" name="ngayden" id="ngayden" class="inputf" >
-      <span class="heading2">Ngày đi <br></span>
-      <input type="date" name="ngayden" id="ngayden" class="inputf" ><br>
-      <span class="heading2">Loại phòng</span><br>
-      <div class="dropdown-container">
-          <select id="room-type" v-model="selectedRoomType">
-            <option v-for="option in roomOptions" :key="option.value" :value="option.value">
-              {{ option.text }}
-            </option>
-          </select>
-      </div><br>
-      <span class="heading2">Số lượng</span><br>
-      <div class="dropdown-container">
-          <select id="room-type" v-model="quantity">
-            <option v-for="option in quantityOptions" :key="option.value" :value="option.value">
-              {{ option.text }}
-            </option>
-          </select>
-      </div>
-      <br>
-      <span class="heading1">Thông tin khách hàng</span><br>
-      <span class="heading2">Tên của bạn (bắt buộc)</span><br>
-      <input type="text" class="inputf"><br>
-      <span class="heading2">Số Điện Thoại (bắt buộc)</span><br>
-      <input type="text" class="inputf"><br>
-      <span class="heading2">Địa chỉ Email</span><br>
-      <input type="text" class="inputf"><br>
-      <span class="heading2">Ghi Chú</span><br>
-      <input type="text" class="inputf"><br>
-      <button class="btsent">Gửi đi</button>
-    </form>
+    <form @submit.prevent="submitForm" class="formdatphong" data-aos="fade-down" data-aos-anchor-placement="bottom-bottom" data-aos-once="true">
+    <span class="heading1">Thông Tin Đặt Phòng</span><br>
+    <span class="heading2">Ngày đến <br></span>
+    <input type="date" v-model="form.ngayden" class="inputf" required><br>
+    <span class="heading2">Ngày đi <br></span>
+    <input type="date" v-model="form.ngaydi" class="inputf" required><br>
+    <span class="heading2">Loại phòng</span><br>
+    <div class="dropdown-container">
+        <select v-model="form.loaiphong" class="inputf" required>
+          <option v-for="option in roomOptions" :key="option.value" :value="option.value">
+            {{ option.text }}
+          </option>
+        </select>
+    </div><br>
+    <span class="heading2">Số lượng</span><br>
+    <div class="dropdown-container">
+        <select v-model="form.soluong" class="inputf" required>
+          <option v-for="option in quantityOptions" :key="option.value" :value="option.value">
+            {{ option.text }}
+          </option>
+        </select>
+    </div><br>
+    <span class="heading1">Thông tin khách hàng</span><br>
+    <span class="heading2">Tên của bạn (bắt buộc)</span><br>
+    <input type="text" v-model="form.ten" class="inputf" required><br>
+    <span class="heading2">Số Điện Thoại (bắt buộc)</span><br>
+    <input type="text" v-model="form.sodienthoai" class="inputf" required><br>
+    <span class="heading2">Địa chỉ Email</span><br>
+    <input type="email" v-model="form.email" class="inputf"><br>
+    <span class="heading2">Ghi Chú</span><br>
+    <input type="text" v-model="form.ghichu" class="inputf"><br>
+    <button type="submit" class="btsent">Gửi đi</button>
+  </form>
   </div>
   </div>
 </template>
   
   
 <script>
-  export default {
-    name: 'Home',
-    methods: {
-        darkenImage() {
-            document.querySelector('.home-room-img img').style.filter = 'brightness(50%)';
-            document.querySelector('.room-title').style.backgroundColor = '#007bff';
-        },
-        lightenImage() {
-            document.querySelector('.home-room-img img').style.filter = 'brightness(100%)';
-            document.querySelector('.room-title').style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-        },
-    }, 
-    data() {
-        return {
-         selectedRoomType: '',
-         roomOptions: [
-          { value: 'vip1', text: 'Phòng VIP 1' },
-          { value: 'vip2', text: 'Phòng VIP 2' },
-          { value: 'type1', text: 'Phòng loại 1' },
-          { value: 'type2', text: 'Phòng loại 2' },
-          { value: 'type2_other', text: 'Phòng loại 2(khác)' }
-        ],
-        quantity: '',
-        quantityOptions: [
-          { value: '1', text: 1 },
-          { value: '2', text: 2 },
-          { value: '3', text: 3 },
-          { value: '4', text: 4 },
-          { value: '5', text: 5 },
-          { value: '6', text: 6 }
-        ]
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      form: {
+        ngayden: '',
+        ngaydi: '',
+        loaiphong: '',
+        soluong: '',
+        ten: '',
+        sodienthoai: '',
+        email: '',
+        ghichu: ''
+      },
+      roomOptions: [
+        { value: 'vip1', text: 'Phòng VIP 1' },
+        { value: 'vip2', text: 'Phòng VIP 2' },
+        { value: 'type1', text: 'Phòng loại 1' },
+        { value: 'type2', text: 'Phòng loại 2' },
+        { value: 'type2_other', text: 'Phòng loại 2(khác)' }
+      ],
+      quantityOptions: [
+        { value: 1, text: 1 },
+        { value: 2, text: 2 },
+        { value: 3, text: 3 },
+        { value: 4, text: 4 },
+        { value: 5, text: 5 },
+        { value: 6, text: 6 }
+      ]
+    };
+  },
+  methods: {
+    async submitForm() {
+      try {
+        const response = await axios.post('http://localhost:3000/booking', this.form);
+        alert('Đặt phòng thành công');
+        this.resetForm();
+      } catch (error) {
+        console.error('Có lỗi xảy ra:', error);
+        alert('Có lỗi xảy ra, vui lòng thử lại');
+      }
+    },
+    resetForm() {
+      this.form = {
+        ngayden: '',
+        ngaydi: '',
+        loaiphong: '',
+        soluong: '',
+        ten: '',
+        sodienthoai: '',
+        email: '',
+        ghichu: ''
       };
     }
   }
-
+}
 </script>
+
   
 <style scoped>
 .home {
@@ -228,6 +251,7 @@
   align-items: center;
   justify-content: flex-start;
   margin: 2.4cm;
+  margin-top: 0cm;
 }
 
 .home-room-img {
@@ -325,6 +349,10 @@
   border: none;
   font-size: 20px;
   margin-top: 20px;
+}
+.btn{
+  position: relative;
+  left: 2.2cm;
 }
 </style>
   
