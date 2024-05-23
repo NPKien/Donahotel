@@ -36,8 +36,8 @@
                   <p @click.prevent="redirectToIntroductionPage">Giới Thiệu</p>
                   <p @click.prevent="scrollToSection('section5')">Liên Hệ</p>
                   <p @click.prevent="scrollToSection('section2')">Đặt Phòng</p>
-                  <p>PHÒNG VIP 1</p>
-                  <p @click.prevent="scrollToSection('section4')">Dịch Vụ Nhà Hàng</p>
+                  <p @click.prevent="redirectTovip1Page">PHÒNG VIP 1</p>
+                  <p @click.prevent="redirectTodvnhPage">Dịch Vụ Nhà Hàng</p>
                 </div>
               </td>
               <td>
@@ -79,10 +79,11 @@
 
 <script>
 import { scrollMixin } from './mixin/scrollMixin';
-
+import { redirectToPage } from "./Loaiphong/redirectToPage";
+import { redirectToPageservice } from "./Dichvu/redirectToPageservice";
 export default {
   name: 'Footer',
-  mixins: [scrollMixin],
+  mixins: [scrollMixin, redirectToPage, redirectToPageservice],
   data() {
     return {
       isVisible: false

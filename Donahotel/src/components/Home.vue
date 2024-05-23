@@ -14,58 +14,58 @@
       <div class="product-container" >
         <div class="product">
           <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
-            <img src="./picture/phongloai1a.jpg" alt="Product Image">
+            <img src="./picture/phongloai1a.jpg" alt="Product Image" @click.prevent="redirectTo1aPage">
           </div>
           <div class="details">
-            <span style="position: relative; left: -2cm;">Phòng loại 1a </span>
-            <button class="btn">Xem chi tiết</button>
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTo1aPage">Phòng loại 1a </span>
+            <button class="btn" @click.prevent="redirectTo1aPage">Xem chi tiết</button>
           </div>
         </div>
         <div class="product">
           <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
-            <img src="./picture/phongloai1b.jpg" alt="Product Image">
+            <img src="./picture/phongloai1b.jpg" alt="Product Image" @click.prevent="redirectTo1bPage">
           </div>
           <div class="details">
-            <span style="position: relative; left: -2cm;">Phòng loại 1b </span>
-            <button class="btn">Xem chi tiết</button>
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTo1bPage">Phòng loại 1b </span>
+            <button class="btn" @click.prevent="redirectTo1bPage">Xem chi tiết</button>
           </div>
         </div>
         <div class="product">
           <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
-            <img src="./picture/phongvip1.jpg" alt="Product Image">
+            <img src="./picture/phongvip1.jpg" alt="Product Image" @click.prevent="redirectTovip1Page">
           </div>
           <div class="details">
-            <span style="position: relative; left: -2cm;">Phòng Vip 1 </span>
-            <button class="btn">Xem chi tiết</button>
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTovip1Page">Phòng Vip 1 </span>
+            <button class="btn" @click.prevent="redirectTovip1Page">Xem chi tiết</button>
           </div>
         </div>
       </div>
       <div class="product-container"  >
         <div class="product">
           <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-            <img src="./picture/phongloai2a.jpg" alt="Product Image">
+            <img src="./picture/phongloai2a.jpg" alt="Product Image" @click.prevent="redirectTo2aPage">
           </div>
           <div class="details">
-            <span style="position: relative; left: -2cm;">Phòng loại 2a </span>
-            <button class="btn">Xem chi tiết</button>
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTo2aPage">Phòng loại 2a </span>
+            <button class="btn" @click.prevent="redirectTo2aPage">Xem chi tiết</button>
           </div>
         </div>
         <div class="product">
           <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-            <img src="./picture/phongloai2b.jpg" alt="Product Image">
+            <img src="./picture/phongloai2b.jpg" alt="Product Image" @click.prevent="redirectTo2bPage">
           </div>
           <div class="details">
-            <span style="position: relative; left: -2cm;">Phòng loại 2b </span>
-            <button class="btn">Xem chi tiết</button>
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTo2bPage">Phòng loại 2b </span>
+            <button class="btn" @click.prevent="redirectTo2bPage">Xem chi tiết</button>
           </div>
         </div>
         <div class="product">
           <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-            <img src="./picture/phongvip2.jpg" alt="Product Image">
+            <img src="./picture/phongvip2.jpg" alt="Product Image" @click.prevent="redirectTovip2Page">
           </div>
           <div class="details">
-            <span style="position: relative; left: -2cm;">Phòng Vip 2 </span>
-            <button class="btn">Xem chi tiết</button>
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTovip2Page">Phòng Vip 2 </span>
+            <button class="btn" @click.prevent="redirectTovip2Page">Xem chi tiết</button>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@
         <img width="360" height="250" src="./picture/dichvu.jpg" class="img-responsive">
         <div class="showcase-inner">
           <div>
-            <a target="_self" href="//donahotel.vn/dich-vu-nha-hang/" class="custom-btn">
+            <a target="_self" href="http://localhost:5173/dichvunhahang" class="custom-btn">
               Xem Chi Tiết
             </a>
           </div>
@@ -125,8 +125,9 @@
   
 <script>
 import axios from 'axios';
-
+import {redirectToPage} from './Loaiphong/redirectToPage' ;
 export default {
+  mixins : [redirectToPage],
   data() {
     return {
       form: {
