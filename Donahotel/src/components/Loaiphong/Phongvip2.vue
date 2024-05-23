@@ -7,14 +7,25 @@
   </div>
   <br>
   <img style="width: 2cm; position: relative; top: 2cm;" src="../picture/back.png" alt="" @click.prevent="scrollToSection('section1')"> <br>
-  <div class="room-info">
-    <h3 class="section-title">Phòng loại 1a</h3>
-    <h2 class="detail-title">2 Giường đôi</h2>
-    <h2 class="detail-title">Diện tích</h2>
-    <span class="detail-text">20m²</span>
-    <h2 class="detail-title">Internet</h2>
-    <p class="detail-text">Internet (thu phụ phí)</p>
-    <p class="detail-text">Internet có dây trong phòng.</p>
+  <div class="room-info" >
+    <h3 class="section-title" >Phòng loại 1a</h3>
+    <table>
+      <tr>
+        <td>
+          <h2 class="detail-title">2 Giường đôi</h2>
+        </td>
+        <td>
+          <h2 class="detail-title">Diện tích</h2>
+          <span class="detail-text">20m²</span>
+        </td>
+        <td>
+          <h2 class="detail-title">Internet</h2>
+          <p class="detail-text">Internet (thu phụ phí)</p>
+          <p class="detail-text">Internet có dây trong phòng.</p>
+        </td>
+      </tr>
+    </table>
+    <div>test</div>
   </div>
 </template>
 
@@ -49,15 +60,16 @@ export default {
   font-family: Arial, sans-serif;
   color: #333;
   line-height: 1.6;
-  position: relative;
-  left: 30%;
 }
 
 .section-title {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
+  margin-right: 10cm;
   color: yellowgreen;
+  display: flex;
+  justify-content: center;
 }
 
 .detail-title {
@@ -71,5 +83,17 @@ export default {
   font-size: 20px;
   margin-bottom: 15px;
   color: #0f4a1a;
+}
+td{
+  vertical-align: top;
+  margin-top: 2cm;
+  margin-left: 10cm;
+  margin-right: 5cm;
+}
+table{
+  width: 100vw;
+}
+td{
+  width: 30%;
 }
 </style>

@@ -6,32 +6,44 @@
       </div>
     </div>
     <br>
-    <img style="width: 2cm; position: relative; top: 2cm;" src="../picture/back.png" alt="" @click.prevent="scrollToSection('section1')"> <br>
+    <img style="width: 2cm; position: relative; top: 2cm;" src="../picture/back.png" alt="" @click.prevent="scrollToSection('section5')"> <br>
     <div class="room-info" >
-      <h3 class="section-title" >Phòng loại 1a</h3>
+      <h3 class="section-title" >Chính sách công ty</h3>
       <table>
         <tr>
           <td>
-            <h2 class="detail-title">2 Giường đôi</h2>
+            <h2 class="detail-title">Thời gian nhận và trả phòng</h2>
           </td>
           <td>
-            <h2 class="detail-title">Diện tích</h2>
-            <span class="detail-text">20m²</span>
-          </td>
-          <td>
-            <h2 class="detail-title">Internet</h2>
-            <p class="detail-text">Internet (thu phụ phí)</p>
-            <p class="detail-text">Internet có dây trong phòng.</p>
+            <span class="detail-text">Nhận phòng: </span>
+            <span class="detail-title">Sau 14:00</span><br>
+            <span class="detail-text">Trả phòng: </span>
+            <span class="detail-title">Trước 12:00</span>
           </td>
         </tr>
         <tr>
           <td>
-            <h2 class="detail-title">Giá: </h2>
+            <h2 class="detail-title">Bữa sáng</h2>
           </td>
           <td>
-            <span class="detail-text">Ghi ở đây</span>
+            <span class="detail-title">Loại: </span>
+            <span class="detail-text">Tây phương</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h2 class="detail-title">Thú cưng</h2>
           </td>
           <td>
+            <span class="detail-text">Không được phép mang theo thú cưng</span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h2 class="detail-title">Thanh toán tại khách sạn</h2>
+          </td>
+          <td>
+            <span class="detail-text"><img src="../picture/thanhtoan.png" alt=""></span>
           </td>
         </tr>
       </table>
@@ -73,7 +85,7 @@
   }
   
   .section-title {
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
     margin-right: 10cm;
@@ -83,7 +95,7 @@
   }
   
   .detail-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #0f4a1a;
@@ -105,6 +117,9 @@
   }
   td{
     width: 30%;
+  }
+  tr{
+    height: 2cm;
   }
   </style>
   

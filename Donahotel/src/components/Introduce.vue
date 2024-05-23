@@ -7,7 +7,7 @@
   </div>
   <br>
   <div class="info-container">
-    <img style="margin-top: 1cm; width: 2cm;" src="./picture/back.png" alt="" @click.prevent="scrollToSection('section1')"> <br>
+    <img style="margin-top: 1cm; width: 2cm;" src="./picture/back.png" alt="" @click.prevent="scrollToSection('section5')"> <br>
     <h2 class="hotel-title">Khách sạn Dona</h2>
     <p class="hotel-address">Lô B TTTM Cái Khế Đường Trần Phú, Phường Cái Khế, Quận Ninh Kiều, Thành phố Cần Thơ</p>
     <h3 class="section-title">Giới thiệu</h3>

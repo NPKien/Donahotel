@@ -8,6 +8,7 @@ import Phongvip1 from '@/components/Loaiphong/Phongvip1.vue'
 import Phongvip2 from '@/components/Loaiphong/Phongvip2.vue'
 import Dichvunhahang from "@/components/Dichvu/Dichvunhahang.vue"
 import { createRouter, createWebHistory } from 'vue-router'
+import Chinhsach from '@/components/chinhsach/chinhsach.vue'
 const routes = [
     {
       path: '/', 
@@ -53,6 +54,11 @@ const routes = [
       path: '/dichvunhahang', 
       name: 'Dichvunhahang',
       component: Dichvunhahang
+    },
+    {
+      path: '/chinhsach', 
+      name: 'Chinhsach',
+      component: Chinhsach
     },
   ]
 

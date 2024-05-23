@@ -42,7 +42,7 @@
               </td>
               <td>
                 <div class="col">
-                  <p>CHÍNH SÁCH CÔNG TY</p>
+                  <p @click.prevent="redirectTochinhsachPage">CHÍNH SÁCH CÔNG TY</p>
                   <p @click.prevent="scrollToSection('section2')">Hình thức đặt phòng</p>
                   <p @click.prevent="scrollToSection('section5')">Hình thức thanh toán</p>
                   <p>Bảo mật thông tin khách hàng</p>
@@ -81,9 +81,10 @@
 import { scrollMixin } from './mixin/scrollMixin';
 import { redirectToPage } from "./Loaiphong/redirectToPage";
 import { redirectToPageservice } from "./Dichvu/redirectToPageservice";
+import { redirectToPagechinhsach } from "./chinhsach/redirectToPage";
 export default {
   name: 'Footer',
-  mixins: [scrollMixin, redirectToPage, redirectToPageservice],
+  mixins: [scrollMixin, redirectToPage, redirectToPageservice, redirectToPagechinhsach],
   data() {
     return {
       isVisible: false
