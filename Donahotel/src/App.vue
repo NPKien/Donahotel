@@ -1,7 +1,5 @@
 <script >
   import Header from './components/Header.vue'
-  // import HeroSection from './components/HeroSection.vue'
-  // import ContentSection from './components/ContentSection.vue'
   import Footer from './components/Footer.vue'
   // document.body.style.overflowX = 'hidden';
   export default {

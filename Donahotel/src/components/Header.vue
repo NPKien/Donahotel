@@ -9,7 +9,45 @@
       <a class="nav-link" @click.prevent="scrollToSection('section4')">Dịch vụ</a>
       <a class="nav-link" @click.prevent="scrollToSection('section5')">Liên hệ</a>
     </nav>
-    <img style="width: 60px; position: fixed; bottom: 0cm; right: 0cm; z-index: 100;" src="./picture/iconup.png" alt="" @click="scrollToTop" class="scroll-to-top" :class="{ show: isVisible }">
+        <img style="width: 60px; position: fixed; bottom: 0cm; right: 0cm; z-index: 100;" src="./picture/iconup.png" alt="" @click="scrollToTop" class="scroll-to-top" :class="{ show: isVisible }">
+        <div class="guide-plugin">
+          <div class="guide-icon" @click.prevent="toggleGuide">
+            <img src="./picture/zalo.jpg" alt="Guide Icon" style="height: 1cm;">
+          </div>
+          <div v-if="showGuide" >
+            <div class="guide-form">
+              <div class="qa-box">
+                <div class="question">Làm thế nào để đặt phòng?</div>
+                <div class="answer">Bạn có thể đặt phòng bằng cách truy cập vào trang web của chúng tôi và chọn mục 'Đặt phòng'.</div>
+              </div>
+              <div class="qa-box">
+                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
+                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+              </div>
+              <div class="qa-box">
+                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
+                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+              </div>
+              <div class="qa-box">
+                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
+                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+              </div>
+              <div class="qa-box">
+                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
+                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+              </div>
+              <div class="qa-box">
+                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
+                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+              </div>
+              <div class="qa-box">
+                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
+                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
   </header>
 </template>
 
@@ -21,10 +59,15 @@ export default {
   mixins: [scrollMixin],
   data() {
     return {
-      isVisible: false
+      isVisible: false, showGuide: true
     };
+  },
+  methods:{
+    toggleGuide() {
+      this.showGuide = !this.showGuide;
+    }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -79,5 +122,63 @@ button a {
 .nav-link {
   width: 90px;
   text-align: center;
+}
+
+.floating-contacts {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.contact-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-item img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.guide-plugin {
+  position: fixed;
+  top:100px; 
+  right: 20px;
+  z-index: 800;
+}
+.guide-icon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.guide-form {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  max-height: 300px; /* Đặt chiều cao tối đa */
+  overflow-y: auto; 
+}
+
+.qa-box {
+  margin-bottom: 20px;
+}
+
+.question {
+  font-weight: bold;
+  color: #333;
+}
+
+.answer {
+  color: #555;
+}
+.guide-box.show {
+  display: block;
 }
 </style>

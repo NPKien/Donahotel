@@ -72,7 +72,17 @@
       </div>
     </footer>
     <div class="footer-bot">
-      <br><br>
+      <div class="footer-section">
+        <h3>Fanpage</h3>
+        <div class="fb-page" data-href="https://www.facebook.com/donahotelcantho/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/donahotelcantho/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/donahotelcantho/"><img src="./picture/fbicon.png" alt="" style="height: 0.5cm; margin-top: 0.2cm;"></a></blockquote>
+          </div>
+    </div>
+    <div class="footer-section">
+        <h3>Địa chỉ</h3>
+        <p>Lô 8, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP. Cần Thơ</p>
+        <p>SĐT Đặt Chỗ: 0292 376 3333 - 3 766 333 - 376 6666</p>
+    </div>
     </div>
   </div>
 </template>
@@ -115,11 +125,14 @@ export default {
   width: 100vw;
   display: flex;
   align-items: center;
-  padding: 0 20px;
   box-sizing: border-box;
   position: relative;
   left: -100px;
   bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  color: white;
 }
 .footer-top {
   background-color: #a29060;
@@ -136,6 +149,20 @@ export default {
   width: 100%;
   max-width: 1200px;
   margin-left: 2cm;
+}
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    height: 90px;
+}
+
+.footer-section h3 {
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+}
+
+.footer-section p {
+    margin: 10px 0;
 }
 
 .row {
