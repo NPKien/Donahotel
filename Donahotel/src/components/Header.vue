@@ -12,7 +12,7 @@
         <img style="width: 60px; position: fixed; bottom: 0cm; right: 0cm; z-index: 100;" src="./picture/iconup.png" alt="" @click="scrollToTop" class="scroll-to-top" :class="{ show: isVisible }">
         <div class="guide-plugin">
           <div class="guide-icon" @click.prevent="toggleGuide">
-            <img src="./picture/zalo.jpg" alt="Guide Icon" style="height: 1cm;">
+            <img src="./picture/help.png" alt="Guide Icon" style="height: 1cm;">
           </div>
           <div v-if="showGuide" >
             <div class="guide-form">
@@ -59,7 +59,7 @@ export default {
   mixins: [scrollMixin],
   data() {
     return {
-      isVisible: false, showGuide: true
+      isVisible: false, showGuide: false
     };
   },
   methods:{
@@ -148,8 +148,8 @@ button a {
 }
 .guide-plugin {
   position: fixed;
-  top:100px; 
-  right: 20px;
+  bottom:20%; 
+  right: 0;
   z-index: 800;
 }
 .guide-icon {

@@ -143,9 +143,10 @@ export default {
       roomOptions: [
         { value: 'vip1', text: 'Phòng VIP 1' },
         { value: 'vip2', text: 'Phòng VIP 2' },
-        { value: 'type1', text: 'Phòng loại 1' },
-        { value: 'type2', text: 'Phòng loại 2' },
-        { value: 'type2_other', text: 'Phòng loại 2(khác)' }
+        { value: 'type1a', text: 'Phòng loại 1a' },
+        { value: 'type2a', text: 'Phòng loại 2a' },
+        { value: 'type1b', text: 'Phòng loại 1b' },
+        { value: 'type2b', text: 'Phòng loại 2b' }
       ],
       quantityOptions: [
         { value: 1, text: 1 },
@@ -160,25 +161,30 @@ export default {
   methods: {
     async submitForm() {
       try {
-        const response = await axios.post('http://localhost:3000/booking', this.form);
-        alert('Đặt phòng thành công');
-        this.resetForm();
+          const response = await axios.post('http://localhost:3000/booking', this.form);
+          alert('Đặt phòng thành công');
+          this.resetForm();
       } catch (error) {
-        console.error('Có lỗi xảy ra:', error);
-        alert('Có lỗi xảy ra, vui lòng thử lại');
+          console.error('Có lỗi xảy ra:', error);
+          if (error.response && error.response.data) {
+              // Hiển thị thông báo lỗi từ backend
+              alert(`Có lỗi xảy ra: ${error.response.data.message}`);
+          } else {
+              alert('Có lỗi xảy ra, vui lòng thử lại');
+          }
       }
     },
     resetForm() {
-      this.form = {
-        ngayden: '',
-        ngaydi: '',
-        loaiphong: '',
-        soluong: '',
-        ten: '',
-        sodienthoai: '',
-        email: '',
-        ghichu: ''
-      };
+        this.form = {
+            ngayden: '',
+            ngaydi: '',
+            loaiphong: '',
+            soluong: '',
+            ten: '',
+            sodienthoai: '',
+            email: '',
+            ghichu: ''
+        };
     }
   }
 }
