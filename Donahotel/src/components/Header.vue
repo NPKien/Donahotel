@@ -25,24 +25,24 @@
                 <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
               </div>
               <div class="qa-box">
-                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
-                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+                <div class="question">Giá phòng tại khách sạn áp dụng theo phòng hay theo số lượng người?</div>
+                <div class="answer">Các mức giá được áp dụng cho hai người/phòng và người thứ ba sẽ được tính phí thêm 200.000 VND với giường phụ.</div>
               </div>
               <div class="qa-box">
-                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
-                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+                <div class="question"> Làm thế nào để đặt phòng cho người khác tại khách sạn?</div>
+                <div class="answer">Quý khách chỉ cần cung cấp tên của khách nhận phòng khách sạn và số điện thoại, địa chỉ email của khách để Khách sạn liên hệ, Khách sạn sẽ gửi xác nhận qua email, số điện thoại mà Quý khách cung cấp.</div>
               </div>
               <div class="qa-box">
-                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
-                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+                <div class="question">Khách sạn có sẵn mạng Internet hay không ?</div>
+                <div class="answer">Toàn bộ khách sạn được thiết lập hệ thống internet không dây được sử dụng hoàn toàn miễn phí. Quý khách có thể liên hệ với quầy lễ tân để biết tên đăng nhập và mật khẩu. Mạng không dây cũng đều có sẵn ở mỗi phòng khách.</div>
               </div>
               <div class="qa-box">
-                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
-                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+                <div class="question">Khách sạn có khu vui chơi cho trẻ em hay không ?</div>
+                <div class="answer">Chúng tôi hiện chưa có khu vui chơi cho trẻ em. Tuy nhiên ngay cạnh Khách sạn của chúng tôi là khu vui chơi cho trẻ em.</div>
               </div>
               <div class="qa-box">
-                <div class="question">Có cần phải đặt cọc khi đặt phòng không?</div>
-                <div class="answer">Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng.</div>
+                <div class="question">Làm cách nào tôi có thể hủy phòng mà không bị tính phí ?</div>
+                <div class="answer">Tuỳ thuộc vào các điều kiện khi đặt phòng, quý khách nên vui lòng liên hệ với bộ phận đặt phòng của chúng tôi để biết thêm thông tin chi tiết.</div>
               </div>
 
             </div>

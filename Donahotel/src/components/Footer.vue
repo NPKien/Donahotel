@@ -75,7 +75,8 @@
       <div class="footer-section">
         <h3>Fanpage</h3>
         <div class="fb-page" data-href="https://www.facebook.com/donahotelcantho/" data-tabs="timeline" data-width="" data-height="" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-            <blockquote cite="https://www.facebook.com/donahotelcantho/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/donahotelcantho/"><img src="./picture/fbicon.png" alt="" style="height: 0.5cm; margin-top: 0.2cm;"></a></blockquote>
+            <blockquote cite="https://www.facebook.com/donahotelcantho/" class="fb-xfbml-parse-ignore">
+            <a  href="https://www.facebook.com/donahotelcantho/"><img src="./picture/fbicon.png" alt="" style="height: 0.5cm; margin-top: 0.2cm;"></a></blockquote>
           </div>
     </div>
     <div class="footer-section">

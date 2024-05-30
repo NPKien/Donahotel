@@ -24,15 +24,58 @@
           <p class="detail-text">Internet có dây trong phòng.</p>
         </td>
       </tr>
+      <tr>
+        <td>
+          <h2 class="detail-title">Số phòng còn lại: </h2>
+        </td>
+        <td>
+          <span class="detail-text">{{ roomQuantity }}</span>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h2 class="detail-title">Giá: </h2>
+        </td>
+        <td>
+          <span class="detail-text">Ghi ở đây</span>
+        </td>
+        <td>
+        </td>
+      </tr>
     </table>
     <div>test</div>
   </div>
 </template>
 
 <script>
-import {scrollMixin} from "../mixin/scrollMixin";
+import { scrollMixin } from "../mixin/scrollMixin";
+import axios from "axios"; // Thêm import axios vào đây
+
 export default {
+  name: 'Phongloai1a',
   mixins: [scrollMixin],
+  inheritAttrs: false,
+  data() { // Khởi tạo roomQuantity trong data
+    return {
+      roomQuantity: null
+    };
+  },
+  mounted() {
+    this.fetchRoomQuantity();
+  },
+  methods: {
+    async fetchRoomQuantity() {
+      try {
+        const response = await axios.get(`http://localhost:3000/quantity/type2a`);
+        this.roomQuantity = response.data.quantity;
+      } catch (error) {
+        console.error('Có lỗi xảy ra khi lấy số lượng phòng:', error);
+        alert('Có lỗi xảy ra, vui lòng thử lại');
+      }
+    }
+  }
 };
 </script>
 
@@ -84,16 +127,16 @@ export default {
   margin-bottom: 15px;
   color: #0f4a1a;
 }
-td{
+td {
   vertical-align: top;
   margin-top: 2cm;
   margin-left: 10cm;
   margin-right: 5cm;
 }
-table{
+table {
   width: 100vw;
 }
-td{
+td {
   width: 30%;
 }
 </style>
