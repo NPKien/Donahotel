@@ -154,6 +154,7 @@ export default {
 .footer-section {
     flex: 1;
     margin: 10px;
+    margin-left: 2cm;
     height: 90px;
 }
 

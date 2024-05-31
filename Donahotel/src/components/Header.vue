@@ -48,6 +48,11 @@
             </div>
           </div>
         </div>
+        <div class="floating-contacts">
+      <div class="contact-item" @click="openEmailComposer">
+        <img src="./picture/gmail.png" alt="Gmail Icon">
+      </div>
+    </div>
   </header>
 </template>
 
@@ -65,6 +70,9 @@ export default {
   methods:{
     toggleGuide() {
       this.showGuide = !this.showGuide;
+    }, 
+    openEmailComposer() {
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=kienB1805882@student.ctu.edu.vn');
     }
   }
 }
@@ -126,8 +134,8 @@ button a {
 
 .floating-contacts {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 11%;
+  right: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -149,7 +157,7 @@ button a {
 .guide-plugin {
   position: fixed;
   bottom:20%; 
-  right: 0;
+  right: 5px;
   z-index: 800;
 }
 .guide-icon {
@@ -162,7 +170,7 @@ button a {
   background-color: #f2f2f2;
   padding: 20px;
   border-radius: 10px;
-  max-height: 300px; /* Đặt chiều cao tối đa */
+  max-height: 300px;
   overflow-y: auto; 
 }
 
