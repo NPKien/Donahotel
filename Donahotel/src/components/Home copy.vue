@@ -2,12 +2,8 @@
   <div class="home" v-aos="{ offset: 1000, delay: 300, duration: 1500, easing: 'ease', once: true }">
       <div class="imformation">
         <div class="container">
-          <div class="row">
-            <div class="col">
-              <strong>Địa Chỉ :</strong> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
-              <strong>SĐT Đặt Chỗ :</strong> 0292 376 3333 - 3 766 333 - 376 6666
-            </div>
-          </div>
+          <span style="font-weight: bold;">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
+          <span style="font-weight: bold;">SĐT Đặt Chỗ :</span> 0292 376 3333 - 3 766 333 - 376 6666
         </div>
       </div>
       <div>
@@ -15,64 +11,64 @@
       </div>
       <span class="heading">Các loại phòng</span> <br>
       <br>
-      <div class="product-container">
-      <div class="product">
-        <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
-          <img src="./picture/phongloai1a.jpg" alt="Product Image" @click.prevent="redirectTo1aPage">
+      <div class="product-container" >
+        <div class="product">
+          <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
+            <img src="./picture/phongloai1a.jpg" alt="Product Image" @click.prevent="redirectTo1aPage">
+          </div>
+          <div class="details">
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTo1aPage">Phòng loại 1a </span>
+            <button class="btn" @click.prevent="redirectTo1aPage">Xem chi tiết</button>
+          </div>
         </div>
-        <div class="details">
-          <span style="position: relative;" @click.prevent="redirectTo1aPage">Phòng loại 1a </span>
-          <button class="btn" @click.prevent="redirectTo1aPage">Xem chi tiết</button>
+        <div class="product">
+          <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
+            <img src="./picture/phongloai1b.jpg" alt="Product Image" @click.prevent="redirectTo1bPage">
+          </div>
+          <div class="details">
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTo1bPage">Phòng loại 1b </span>
+            <button class="btn" @click.prevent="redirectTo1bPage">Xem chi tiết</button>
+          </div>
         </div>
-      </div>
-      <div class="product">
-        <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
-          <img src="./picture/phongloai1b.jpg" alt="Product Image" @click.prevent="redirectTo1bPage">
-        </div>
-        <div class="details">
-          <span style="position: relative; " @click.prevent="redirectTo1bPage">Phòng loại 1b </span>
-          <button class="btn" @click.prevent="redirectTo1bPage">Xem chi tiết</button>
-        </div>
-      </div>
-      <div class="product">
-        <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
-          <img src="./picture/phongvip1.jpg" alt="Product Image" @click.prevent="redirectTovip1Page">
-        </div>
-        <div class="details">
-          <span style="position: relative;" @click.prevent="redirectTovip1Page">Phòng Vip 1 </span>
-          <button class="btn" @click.prevent="redirectTovip1Page">Xem chi tiết</button>
-        </div>
-      </div>
-    </div>
-    <div class="product-container">
-      <div class="product">
-        <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-          <img src="./picture/phongloai2a.jpg" alt="Product Image" @click.prevent="redirectTo2aPage">
-        </div>
-        <div class="details">
-          <span style="position: relative; " @click.prevent="redirectTo2aPage">Phòng loại 2a </span>
-          <button class="btn" @click.prevent="redirectTo2aPage">Xem chi tiết</button>
+        <div class="product">
+          <div class="image-container" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true" data-aos-offset="200">
+            <img src="./picture/phongvip1.jpg" alt="Product Image" @click.prevent="redirectTovip1Page">
+          </div>
+          <div class="details">
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTovip1Page">Phòng Vip 1 </span>
+            <button class="btn" @click.prevent="redirectTovip1Page">Xem chi tiết</button>
+          </div>
         </div>
       </div>
-      <div class="product">
-        <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-          <img src="./picture/phongloai2b.jpg" alt="Product Image" @click.prevent="redirectTo2bPage">
+      <div class="product-container"  >
+        <div class="product">
+          <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
+            <img src="./picture/phongloai2a.jpg" alt="Product Image" @click.prevent="redirectTo2aPage">
+          </div>
+          <div class="details">
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTo2aPage">Phòng loại 2a </span>
+            <button class="btn" @click.prevent="redirectTo2aPage">Xem chi tiết</button>
+          </div>
         </div>
-        <div class="details">
-          <span style="position: relative;" @click.prevent="redirectTo2bPage">Phòng loại 2b </span>
-          <button class="btn" @click.prevent="redirectTo2bPage">Xem chi tiết</button>
+        <div class="product">
+          <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
+            <img src="./picture/phongloai2b.jpg" alt="Product Image" @click.prevent="redirectTo2bPage">
+          </div>
+          <div class="details">
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTo2bPage">Phòng loại 2b </span>
+            <button class="btn" @click.prevent="redirectTo2bPage">Xem chi tiết</button>
+          </div>
+        </div>
+        <div class="product">
+          <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
+            <img src="./picture/phongvip2.jpg" alt="Product Image" @click.prevent="redirectTovip2Page">
+          </div>
+          <div class="details">
+            <span style="position: relative; left: -2cm;" @click.prevent="redirectTovip2Page">Phòng Vip 2 </span>
+            <button class="btn" @click.prevent="redirectTovip2Page">Xem chi tiết</button>
+          </div>
         </div>
       </div>
-      <div class="product">
-        <div class="image-container" data-aos="fade-right" data-aos-anchor-placement="top-bottom" data-aos-once="true">
-          <img src="./picture/phongvip2.jpg" alt="Product Image" @click.prevent="redirectTovip2Page">
-        </div>
-        <div class="details">
-          <span style="position: relative; " @click.prevent="redirectTovip2Page">Phòng Vip 2 </span>
-          <button class="btn" @click.prevent="redirectTovip2Page">Xem chi tiết</button>
-        </div>
-      </div>
-    </div>
       <span class="heading">Dịch vụ</span><br><br>
       <div class="service" >
       <div class="home-room-img" @mouseover="darkenImage" @mouseout="lightenImage" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true">
@@ -197,25 +193,23 @@ export default {
   
 <style scoped>
 .home {
-  width: 100%;
-  color: white;
-  box-sizing: border-box;
-  z-index: 999;
+  width: 100vw;
+  position: relative;
+  left: -100px;
 }
 
 .imformation {
+  height: 2cm;
+  line-height: 0.7cm;
   background-color: yellowgreen;
-  padding: 10px;
 }
 
-.imformation .container {
-  max-width: 100%;
+.container {
+  position: relative;
+  top: 0.4cm;
+  margin-left: 2.5cm;
+  margin-bottom: 1cm;
 }
-
-.imformation .col {
-  padding: 5px;
-}
-
 
 .picdonahotel {
   width: 100%;
@@ -226,105 +220,45 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 1300px;
-  margin-left: -1cm;
+  
 }
 
 .product {
-  box-sizing: border-box;
-  width: calc(33% - 20px); 
-  margin: 10px;
+  width: calc(33.33% - 90px);
+  margin: 10px; 
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #ccc;
-  padding: 0; 
-  background-color: #fff; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
-  transition: transform 0.2s;
-}
-
-.product:hover {
-  transform: scale(1.05);
+  padding: 20px; 
+  margin-left: 1.5cm;
 }
 
 .image-container {
-  width: 100%;
+  width: 111%;
   text-align: center;
-  border-bottom: 1px solid #ccc;
+  margin-top: -18px;
+  margin-bottom: 0px;
+  margin-left: -0px;
 }
 
 .image-container img {
-  width: 100%;
+  width: 100%; 
   height: auto;
-  max-width: 100%;
-  border-top-left-radius: 10px; 
-  border-top-right-radius: 10px; 
+  margin: 0 0px;
 }
 
 .details {
-  width: 100%;
+  margin-top: 20px;
   text-align: center;
-  padding: 10px; 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.details span {
-  color: #333; 
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.details .btn {
-  background-color: #007BFF; 
-  color: #fff; 
-  border: none;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 0px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.details .btn:hover {
-  background-color: #0056b3; 
-}
-
-
-@media only screen and (max-width: 768px) {
-  .product {
-    width: calc(50% - 20px);
-  }
-}
-
-
-@media only screen and (max-width: 1024px) {
-  .product {
-    width: calc(33.33% - 20px);
-  }
-}
-
-
-@media only screen and (max-width: 600px) {
-  .product {
-    width: calc(100% - 20px);
-  }
-  .image-container img {
-    max-width: 90%;
-    height: auto;
-  }
-}
 .service {
   display: flex;
   align-items: center;
-  justify-content: center; 
-  margin-top: 0px;
+  justify-content: flex-start;
+  margin: 2.4cm;
+  margin-top: 0cm;
 }
 
 .home-room-img {
@@ -335,8 +269,8 @@ export default {
 
 .room-title {
   position: absolute;
-  top: 10px; 
-  right: 10px; 
+  top: 0px;
+  right: 0px;
   z-index: 500;
   font-size: 18px;
   color: #ffffff;
@@ -346,7 +280,7 @@ export default {
 }
 
 .img-responsive {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -360,7 +294,6 @@ export default {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
-
 .home-room-img:hover .showcase-inner {
   opacity: 1;
 }
@@ -373,12 +306,15 @@ export default {
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s;
+  position: absolute;
+  left: 3cm;
+  bottom: 2cm;
+  transition: background-color 0.3s;
 }
 
 .custom-btn:hover {
   background-color: #0056b3;
 }
-
 .home-room-img img {
   transition: transform 0.3s ease;
 }
@@ -386,63 +322,44 @@ export default {
 .home-room-img:hover img {
   transform: scale(1.1);
 }
-
-.formdatphong {
-  padding: 10px; /* Giảm khoảng cách giữa các phần tử bên trong form */
+.formdatphong{
+  padding: 30px;
   background: #fff;
   box-shadow: 1px 4px 16px 3px rgba(199, 197, 199, 1);
-  width: 90%; /* Chiều rộng tối đa cho form trên màn hình di động */
-  margin: auto; /* Căn giữa form */
+  width: 40%;
+  position: relative;left: 30%;
 }
-
-@media only screen and (min-width: 600px) {
-  .formdatphong {
-    width: 40%; 
-    left: 30%; 
-  }
-}
-
-
-.heading {
-  display: flex;
-  justify-content: center;
+.heading{
   font-size: 30px;
   color: #000000;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 0px; 
-  
+  position: relative;
+  left:40%;
+  font-weight: 300;
 }
-
-.heading1 {
+.heading1{
   font-size: 18px;
   color: #2F353E;
-  font-weight: 500;
+  font-weight:500;
 }
-
-.heading2 {
+.heading2{
   font-size: 18px;
   color: #2F353E;
 }
-
-.inputf {
+.inputf{
   width: 100%;
-  height: 40px; /* Điều chỉnh chiều cao của input */
-  margin-bottom: 10px; /* Tăng khoảng cách dưới mỗi input */
+  height: 1.2cm;
 }
-
-.btsent {
+.btsent{
   padding: 10px 20px;
   background: #a29060;
   color: #fff;
   border: none;
   font-size: 20px;
   margin-top: 20px;
-  display: block; /* Đảm bảo nút gửi chiếm đầy chiều ngang của form */
-  margin: 0 auto; /* Canh giữa nút */
 }
-
-.btn {
-  margin-top: 10px; /* Tăng khoảng cách trên mỗi nút */
+.btn{
+  position: relative;
+  left: 2.2cm;
 }
 </style>
+  
