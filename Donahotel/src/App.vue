@@ -14,7 +14,7 @@
 <template>
   <div id="app">
     <Header></Header> <br>
-    <router-view style="margin-top: 90px;"></router-view><br>
+    <router-view style="margin-top: 110px;"></router-view><br>
     <div ><Footer></Footer></div>
   </div>
 </template>

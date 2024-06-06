@@ -31,6 +31,12 @@
         </div>
       </div>
     </nav>
+    <div v-show="showInfo" class="info-bar">
+        <div class="container">
+          <span style="font-weight: bold;">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
+          <span style="font-weight: bold;">SĐT Đặt Chỗ :</span> 0292 376 3333 - 3 766 333 - 376 6666
+        </div>
+    </div>
     <img style="width: 60px; position: fixed; bottom: 0cm; right: 0cm; z-index: 100;" src="./picture/iconup.png" alt="" @click="scrollToTop" class="scroll-to-top" :class="{ show: isVisible }">
     <div class="guide-plugin">
       <div class="guide-icon" @click.prevent="toggleGuide">
@@ -63,6 +69,7 @@ export default {
     return {
       isVisible: false,
       showGuide: false,
+      showInfo: true,
       qaList: [
         { question: "Làm thế nào để đặt phòng?", answer: "Bạn có thể đặt phòng bằng cách truy cập vào trang web của chúng tôi và chọn mục 'Đặt phòng'." },
         { question: "Có cần phải đặt cọc khi đặt phòng không?", answer: "Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng." },
@@ -74,7 +81,17 @@ export default {
       ]
     };
   },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
   methods: {
+    handleScroll() {
+      this.showInfo = window.scrollY < 90;
+      this.isVisible = window.scrollY > 100; // logic for scroll-to-top button
+    },
     toggleGuide() {
       this.showGuide = !this.showGuide;
     },
@@ -96,6 +113,15 @@ export default {
   z-index: 1000;
   padding: 0 20px;
   box-sizing: border-box;
+}
+.info-bar {
+  background-color: yellowgreen;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  z-index: 900;
+  padding: 10px 0;
+  box-sizing: border-box; 
 }
 
 .logo {

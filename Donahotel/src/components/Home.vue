@@ -1,15 +1,6 @@
 <template>
   <div class="home" v-aos="{ offset: 1000, delay: 300, duration: 1500, easing: 'ease', once: true }">
-      <div class="imformation">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <strong>Địa Chỉ :</strong> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
-              <strong>SĐT Đặt Chỗ :</strong> 0292 376 3333 - 3 766 333 - 376 6666
-            </div>
-          </div>
-        </div>
-      </div>
+      
       <div>
         <img src="./picture/Donahotel.jpg" alt="" class="picdonahotel">
       </div>
@@ -201,16 +192,10 @@ export default {
   color: white;
   box-sizing: border-box;
   z-index: 999;
+  display: flex;
+  flex-direction: column;
 }
 
-.imformation {
-  background-color: yellowgreen;
-  padding: 10px;
-}
-
-.imformation .container {
-  max-width: 100%;
-}
 
 .imformation .col {
   padding: 5px;
@@ -221,7 +206,20 @@ export default {
   width: 100%;
   height: auto;
 }
-
+@media only screen and (max-width: 600px) {
+  .picdonahotel {
+  width: 100%;
+  height: auto;
+  margin-top: 121px;
+}
+}
+@media only screen and (max-width: 400px) {
+  .picdonahotel {
+  width: 100%;
+  height: auto;
+  margin-top: 150px;
+}
+}
 .product-container {
   display: flex;
   flex-wrap: wrap;

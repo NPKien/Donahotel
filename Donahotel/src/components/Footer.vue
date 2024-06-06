@@ -206,4 +206,47 @@ p {
 td {
   vertical-align: top;
 }
+/* Đảm bảo bố cục phù hợp cho các màn hình di động */
+/* Đảm bảo kích thước chữ phù hợp cho các màn hình di động */
+@media only screen and (max-width: 768px) {
+  p {
+    font-size: 14px; /* Giảm kích thước chữ xuống */
+  }
+  .col {
+  flex: 1;
+  width: 18vw;
+  }
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+    margin-left: 2cm;
+    height: 150px;
+}
+}
+@media only screen and (max-width: 1000px) {
+
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+    margin-left: 2cm;
+    height: 150px;
+}
+}
+/* Đảm bảo kích thước chữ phù hợp cho các màn hình di động nhỏ */
+@media only screen and (max-width: 480px) {
+  p {
+    font-size: 12px; /* Giảm kích thước chữ xuống thêm */
+  }
+  .col {
+  flex: 1;
+  width: 15vw;
+  }
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+    margin-left: 2cm;
+    height: 150px;
+}
+}
+
 </style>
