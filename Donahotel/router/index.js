@@ -42,7 +42,7 @@ const routes = [
     },
     {
       path: '/vip1', 
-      name: 'Vip2',
+      name: 'Vip1',
       component: Phongvip1
     },
     {

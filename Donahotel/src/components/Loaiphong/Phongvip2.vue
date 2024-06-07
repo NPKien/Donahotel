@@ -8,7 +8,7 @@
   <br>
   <img style="width: 2cm; position: relative; top: 2cm;" src="../picture/back.png" alt="" @click.prevent="scrollToSection('section1')"> <br>
   <div class="room-info" >
-    <h3 class="section-title" >Phòng loại 1a</h3>
+    <h3 class="section-title" >Phòng Vip 2</h3>
     <table>
       <tr>
         <td>
@@ -68,7 +68,7 @@ export default {
   methods: {
     async fetchRoomQuantity() {
       try {
-        const response = await axios.get(`http://localhost:3000/quantity/type1a`);
+        const response = await axios.get(`http://localhost:3000/quantity/vip2`);
         this.roomQuantity = response.data.quantity;
       } catch (error) {
         console.error('Có lỗi xảy ra khi lấy số lượng phòng:', error);

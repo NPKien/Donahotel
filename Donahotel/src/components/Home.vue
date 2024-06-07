@@ -1,9 +1,19 @@
 <template>
   <div class="home" v-aos="{ offset: 1000, delay: 300, duration: 1500, easing: 'ease', once: true }">
-      
-      <div>
-        <img src="./picture/Donahotel.jpg" alt="" class="picdonahotel">
-      </div>
+    <Splide :options="{ perPage: 1, arrows: true, pagination: true }">
+      <SplideSlide>
+        <div class="image-wrapper">
+          <img src="./picture/Donahotel.jpg" alt="" class="picdonahotel">
+        </div>
+        
+      </SplideSlide>
+      <SplideSlide>
+        <div class="image-wrapper">
+          <img src="./picture/Donahotel.jpg" alt="" class="picdonahotel">
+        </div>
+        
+      </SplideSlide>
+    </Splide>
       <span class="heading">Các loại phòng</span> <br>
       <br>
       <div class="product-container">
@@ -121,7 +131,13 @@
 <script>
 import axios from 'axios';
 import {redirectToPage} from './Loaiphong/redirectToPage' ;
+import { Splide, SplideSlide } from '@splidejs/vue-splide';
+import '@splidejs/splide/dist/css/splide.min.css';
 export default {
+  components: {
+    Splide,
+    SplideSlide
+  },
   mixins : [redirectToPage],
   data() {
     return {
@@ -194,6 +210,26 @@ export default {
   z-index: 999;
   display: flex;
   flex-direction: column;
+  margin-bottom: 1cm;
+  justify-content: center; 
+  align-items: center;
+  position: relative;
+  
+}
+@media only screen and (min-width: 1025px) {
+  .home {
+  width: 100%;
+  color: white;
+  box-sizing: border-box;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1cm;
+  justify-content: center; 
+  align-items: center;
+  position: relative;
+  left: -100px;
+}
 }
 
 
@@ -202,22 +238,33 @@ export default {
 }
 
 
+.image-wrapper {
+  max-width: 100%; 
+  max-height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .picdonahotel {
-  width: 100%;
-  height: auto;
+  max-width: 100%; 
+  max-height: 100%; 
+  width: auto; 
+  height: auto; 
 }
 @media only screen and (max-width: 600px) {
   .picdonahotel {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  margin-top: 121px;
+  margin-top: 120px;
 }
 }
 @media only screen and (max-width: 400px) {
   .picdonahotel {
+  max-width: 100%;
   width: 100%;
   height: auto;
-  margin-top: 150px;
+  margin-top: 140px;
 }
 }
 .product-container {
@@ -241,6 +288,7 @@ export default {
   border-radius: 10px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) ;
   transition: transform 0.2s;
+  justify-content: center;
 }
 
 .product:hover {
@@ -386,17 +434,16 @@ export default {
 }
 
 .formdatphong {
-  padding: 10px; /* Giảm khoảng cách giữa các phần tử bên trong form */
+  padding: 10px; 
   background: #fff;
   box-shadow: 1px 4px 16px 3px rgba(199, 197, 199, 1);
-  width: 90%; /* Chiều rộng tối đa cho form trên màn hình di động */
-  margin: auto; /* Căn giữa form */
+  max-width: 90%; 
+  margin: auto; 
 }
 
 @media only screen and (min-width: 600px) {
   .formdatphong {
-    width: 40%; 
-    left: 30%; 
+    width: 400px; 
   }
 }
 

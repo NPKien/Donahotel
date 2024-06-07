@@ -24,13 +24,13 @@ export const scrollMixin = {
             targetOffsetCm = 14.5;
             break;
           case 'section2':
-            targetOffsetCm = 46.5;
+            targetOffsetCm = 55;
             break;
           case 'section3':
             targetOffsetCm = 14.5;
             break;
           case 'section4':
-            targetOffsetCm = 35.5;
+            targetOffsetCm = 41;
             break;
           case 'section5':
             targetOffsetCm = 77;

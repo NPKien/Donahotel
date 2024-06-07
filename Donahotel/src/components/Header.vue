@@ -10,7 +10,7 @@
             </a>
           </div>
           <div class="col-4 col-lg d-flex justify-content-center">
-            <a class="nav-link" href="http://localhost:5173/">Trang chủ</a>
+            <a class="nav-link" style="background-color: yellowgreen; " href="http://localhost:5173/">Trang chủ</a>
           </div>
           <div class="col-4 col-lg d-flex justify-content-center">
             <a class="nav-link" @click.prevent="scrollToSection('section1')">Phòng</a>
@@ -116,7 +116,7 @@ export default {
 }
 .info-bar {
   background-color: yellowgreen;
-  width: 100vw;
+  width: 100%;
   position: fixed;
   left: 0;
   z-index: 900;
@@ -191,4 +191,5 @@ export default {
 .answer {
   color: #555;
 }
+
 </style>

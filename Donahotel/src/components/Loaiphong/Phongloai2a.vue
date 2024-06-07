@@ -8,7 +8,7 @@
   <br>
   <img style="width: 2cm; position: relative; top: 2cm;" src="../picture/back.png" alt="" @click.prevent="scrollToSection('section1')"> <br>
   <div class="room-info" >
-    <h3 class="section-title" >Phòng loại 1a</h3>
+    <h3 class="section-title" >Phòng loại 2a</h3>
     <table>
       <tr>
         <td>
