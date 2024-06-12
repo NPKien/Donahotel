@@ -13,14 +13,17 @@ mongoose.connect('mongodb://localhost:27017/donahotel', {
 
 // Import các routes đã chỉnh sửa tên
 const bookingRoutes = require('./routes/bookingRoutes');
-const typeroomRoutes = require('./routes/quantityroomRoutes');
+const typeroomRoutes = require('./routes/typeroomRoutes');
+const foodRoutes = require('./routes/foodRoutes');
+
 
 app.use(cors());
 app.use(bodyParser.json());
 
 // Use routes
 app.use('/booking', bookingRoutes);
-app.use('/quantity', typeroomRoutes);
+app.use('/type', typeroomRoutes);
+app.use('/food', foodRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

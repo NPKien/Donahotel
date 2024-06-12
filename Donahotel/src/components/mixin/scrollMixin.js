@@ -1,64 +1,49 @@
-// src/mixins/scrollMixin.js
+// scrollMixin.js
 export const scrollMixin = {
-    methods: {
-      scrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
+  methods: {
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    },
+    checkScroll() {
+      this.isVisible = window.scrollY > 300;
+    },
+    scrollToSection(sectionId) {
+      // Nếu không ở trang chủ, chuyển đến trang chủ trước khi scroll
+      if (this.$route.name !== 'Home') {
+        this.$router.push({ name: 'Home' }).then(() => {
+          // Đợi 500ms trước khi cuộn tới section cụ thể
+          setTimeout(() => {
+            this.scrollSection(sectionId);
+          }, 500);
         });
-      },
-      checkScroll() {
-        this.isVisible = window.scrollY > 300;
-      },
-      scrollToSection(section) {
-        const url = `http://localhost:5173/?scroll=${section}`;
-        window.location.href = url;
-      },
-      scrollPage() {
-        const cmToPixels = 37.79527559;
-        let targetOffsetCm;
-  
-        const params = new URLSearchParams(window.location.search);
-        switch (params.get('scroll')) {
-          case 'section1':
-            targetOffsetCm = 14.5;
-            break;
-          case 'section2':
-            targetOffsetCm = 55;
-            break;
-          case 'section3':
-            targetOffsetCm = 14.5;
-            break;
-          case 'section4':
-            targetOffsetCm = 41;
-            break;
-          case 'section5':
-            targetOffsetCm = 77;
-            break;
-          default:
-            targetOffsetCm = 0;
-        }
-  
-        const targetOffsetPx = targetOffsetCm * cmToPixels;
-  
-        setTimeout(() => {
-          window.scrollBy({
-            top: targetOffsetPx,
-            behavior: 'smooth'
-          });
-        }, 1000);
+      } else {
+        this.scrollSection(sectionId);
       }
     },
-    mounted() {
-      window.addEventListener('scroll', this.checkScroll);
-  
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('scroll')) {
-        this.scrollPage();
+    scrollSection(sectionId) {
+      const targetSection = document.getElementById(sectionId);
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        console.error(`Không tìm thấy phần có ID: ${sectionId}`);
       }
-    },
-    beforeDestroy() {
-      window.removeEventListener('scroll', this.checkScroll);
     }
-  };
-  
+  },
+  mounted() {
+    window.addEventListener('scroll', this.checkScroll);
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('scroll')) {
+      this.scrollPage();
+    }
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.checkScroll);
+  }
+};

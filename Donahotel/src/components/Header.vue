@@ -3,39 +3,41 @@
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
         <div class="row w-100 align-items-center no-gutters">
-          <div class="col-lg-1"></div>
-          <div class="col-12 col-lg-3 d-flex justify-content-center justify-content-lg-start">
+          <div class="col-2 col-lg-1 d-flex justify-content-center justify-content-lg-start">
+            <img src="./picture/menu.png" alt="" class="menu" @click="toggleMenu">
+          </div>
+          <div class="col-10 col-lg-3 d-flex justify-content-center justify-content-lg-start">
             <a href="http://localhost:5173/">
               <img class="logo" src="./picture/logo.png" alt="Logo">
             </a>
           </div>
-          <div class="col-4 col-lg d-flex justify-content-center">
-            <a class="nav-link" style="background-color: yellowgreen; " href="http://localhost:5173/">Trang chủ</a>
+          <div :class="['col-4 col-lg d-flex justify-content-center', {'d-none': !showMenu && isMobile}]">
+            <a class="nav-link" style="background-color: yellowgreen;" href="http://localhost:5173/">Trang chủ</a>
           </div>
-          <div class="col-4 col-lg d-flex justify-content-center">
-            <a class="nav-link" @click.prevent="scrollToSection('section1')">Phòng</a>
+          <div :class="['col-4 col-lg d-flex justify-content-center', {'d-none': !showMenu && isMobile}]">
+            <a class="nav-link" @click.prevent="scrollToSection('phong')">Phòng</a>
           </div>
-          <div class="col-4 col-lg d-flex justify-content-center">
-            <a class="nav-link" @click.prevent="scrollToSection('section2')">Đặt phòng</a>
+          <div :class="['col-4 col-lg d-flex justify-content-center', {'d-none': !showMenu && isMobile}]">
+            <a class="nav-link" @click.prevent="scrollToSection('datphong')">Đặt phòng</a>
           </div>
-          <div class="col-4 col-lg d-flex justify-content-center">
-            <a class="nav-link" @click.prevent="scrollToSection('section3')">Khuyến mãi</a>
+          <div :class="['col-4 col-lg d-flex justify-content-center', {'d-none': !showMenu && isMobile}]">
+            <a class="nav-link" @click.prevent="scrollToSection('phong')">Khuyến mãi</a>
           </div>
-          <div class="col-4 col-lg d-flex justify-content-center">
-            <a class="nav-link" @click.prevent="scrollToSection('section4')">Dịch vụ</a>
+          <div :class="['col-4 col-lg d-flex justify-content-center', {'d-none': !showMenu && isMobile}]">
+            <a class="nav-link" @click.prevent="scrollToSection('dichvu')">Dịch vụ</a>
           </div>
-          <div class="col-4 col-lg d-flex justify-content-center">
-            <a class="nav-link" @click.prevent="scrollToSection('section5')">Liên hệ</a>
+          <div :class="['col-4 col-lg d-flex justify-content-center', {'d-none': !showMenu && isMobile}]">
+            <a class="nav-link" @click.prevent="scrollToSection('footer')">Liên hệ</a>
           </div>
-          <div class="col-lg-2" ></div>
+          <div class="col-lg-2"></div>
         </div>
       </div>
     </nav>
     <div v-show="showInfo" class="info-bar">
-        <div class="container">
-          <span style="font-weight: bold;">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
-          <span style="font-weight: bold;">SĐT Đặt Chỗ :</span> 0292 376 3333 - 3 766 333 - 376 6666
-        </div>
+      <div class="container">
+        <span style="font-weight: bold;">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
+        <span style="font-weight: bold;">SĐT Đặt Chỗ :</span> 0292 376 3333 - 3 766 333 - 376 6666
+      </div>
     </div>
     <img style="width: 60px; position: fixed; bottom: 0cm; right: 0cm; z-index: 100;" src="./picture/iconup.png" alt="" @click="scrollToTop" class="scroll-to-top" :class="{ show: isVisible }">
     <div class="guide-plugin">
@@ -59,6 +61,7 @@
   </header>
 </template>
 
+
 <script>
 import { scrollMixin } from './mixin/scrollMixin';
 
@@ -70,6 +73,8 @@ export default {
       isVisible: false,
       showGuide: false,
       showInfo: true,
+      showMenu: window.innerWidth >= 992,
+      isMobile: window.innerWidth < 992,
       qaList: [
         { question: "Làm thế nào để đặt phòng?", answer: "Bạn có thể đặt phòng bằng cách truy cập vào trang web của chúng tôi và chọn mục 'Đặt phòng'." },
         { question: "Có cần phải đặt cọc khi đặt phòng không?", answer: "Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng." },
@@ -83,24 +88,36 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('resize', this.handleResize);
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('resize', this.handleResize);
   },
   methods: {
     handleScroll() {
       this.showInfo = window.scrollY < 90;
-      this.isVisible = window.scrollY > 100; // logic for scroll-to-top button
+      this.isVisible = window.scrollY > 100; // logic cho nút scroll-to-top
     },
     toggleGuide() {
       this.showGuide = !this.showGuide;
     },
     openEmailComposer() {
       window.open('https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=kienB1805882@student.ctu.edu.vn');
+    },
+    toggleMenu() {
+      this.showMenu = !this.showMenu;
+    },
+    handleResize() {
+      this.isMobile = window.innerWidth < 992;
+      if (window.innerWidth >= 992) {
+        this.showMenu = true;
+      }
     }
   }
 }
 </script>
+
 
 <style scoped>
 .header {
@@ -111,9 +128,14 @@ export default {
   top: 0;
   left: 0;
   z-index: 1000;
-  padding: 0 20px;
   box-sizing: border-box;
+  transition: padding-top 0.3s; /* Thêm transition cho padding-top */
 }
+
+.no-padding-top {
+  padding-top: 0 !important;
+}
+
 .info-bar {
   background-color: yellowgreen;
   width: 100%;
@@ -127,6 +149,22 @@ export default {
 .logo {
   width: 260px;
   height: auto;
+}
+
+.menu {
+  width: 60px;
+  height: auto;
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .menu {
+    display: block;
+  }
+  .navbar .nav-link {
+    display: block; /* Hiển thị các mục menu có điều kiện */
+  }
 }
 
 .navbar .nav-link {
@@ -191,5 +229,5 @@ export default {
 .answer {
   color: #555;
 }
-
 </style>
+

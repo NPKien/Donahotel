@@ -14,7 +14,7 @@
         
       </SplideSlide>
     </Splide>
-      <span class="heading">Các loại phòng</span> <br>
+      <span class="heading" id="phong">Các loại phòng</span> <br>
       <br>
       <div class="product-container">
       <div class="product">
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-      <span class="heading">Dịch vụ</span><br><br>
+      <span class="heading" id="dichvu">Dịch vụ</span><br><br>
       <div class="service" >
       <div class="home-room-img" @mouseover="darkenImage" @mouseout="lightenImage" data-aos="fade-left" data-aos-anchor-placement="top-bottom" data-aos-once="true">
         <span class="room-title">Dịch Vụ Nhà Hàng</span>
@@ -88,7 +88,7 @@
         </div>
     </div>
   </div>  
-  <span class="heading">Liên Hệ Đặt Phòng</span> <br><br>
+  <span class="heading" id="datphong">Liên Hệ Đặt Phòng</span> <br><br>
   <div>
     <form @submit.prevent="submitForm" class="formdatphong" data-aos="fade-down" data-aos-anchor-placement="bottom-bottom" data-aos-once="true">
     <span class="heading1">Thông Tin Đặt Phòng</span><br>

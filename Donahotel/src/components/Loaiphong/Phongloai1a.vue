@@ -1,105 +1,95 @@
 <template>
-  <div class="address-info">
-    <div class="container">
-      <span class="label">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
-      <span class="label">SĐT Đặt Chỗ :</span> 0292 376 3333 - 3 766 333 - 376 6666
+  <div class="room-details">
+    <img class="back-button" src="../picture/back.png" alt="Back" @click.prevent="scrollToSection('phong')">
+    <div class="room-info">
+      <h3 class="section-title">Phòng loại 1a</h3>
+      <table>
+        <tr>
+          <td>
+            <h2 class="detail-title">{{ roomType?.bed}}</h2>
+          </td>
+          <td>
+            <h2 class="detail-title">Diện tích</h2>
+            <span class="detail-text">{{ roomType?.area }}m²</span>
+          </td>
+          <td>
+            <h2 class="detail-title">Internet</h2>
+            <p class="detail-text">{{ roomType?.internet }}</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h2 class="detail-title">Số phòng còn lại: </h2>
+          </td>
+          <td>
+            <span class="detail-text">{{ roomType?.quantity }}</span>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <h2 class="detail-title">Giá: </h2>
+          </td>
+          <td>
+            <span class="detail-text">{{ roomType?.expense }}</span>
+          </td>
+          <td></td>
+        </tr>
+      </table>
     </div>
-  </div>
-  <br>
-  <img style="width: 2cm; position: relative; top: 2cm;" src="../picture/back.png" alt="" @click.prevent="scrollToSection('section1')"> <br>
-  <div class="room-info" >
-    <h3 class="section-title" >Phòng loại 1a</h3>
-    <table>
-      <tr>
-        <td>
-          <h2 class="detail-title">2 Giường đôi</h2>
-        </td>
-        <td>
-          <h2 class="detail-title">Diện tích</h2>
-          <span class="detail-text">20m²</span>
-        </td>
-        <td>
-          <h2 class="detail-title">Internet</h2>
-          <p class="detail-text">Internet (thu phụ phí)</p>
-          <p class="detail-text">Internet có dây trong phòng.</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h2 class="detail-title">Số phòng còn lại: </h2>
-        </td>
-        <td>
-          <span class="detail-text">{{ roomQuantity }}</span>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h2 class="detail-title">Giá: </h2>
-        </td>
-        <td>
-          <span class="detail-text">Ghi ở đây</span>
-        </td>
-        <td>
-        </td>
-      </tr>
-    </table>
-    <div>test</div>
   </div>
 </template>
 
 <script>
 import { scrollMixin } from "../mixin/scrollMixin";
-import axios from "axios"; // Thêm import axios vào đây
+import axios from "axios";
 
 export default {
   name: 'Phongloai1a',
   mixins: [scrollMixin],
-  inheritAttrs: false,
-  data() { // Khởi tạo roomQuantity trong data
+  data() {
     return {
-      roomQuantity: null
+      roomType: null,
+      isMobile: window.innerWidth < 768
     };
   },
   mounted() {
-    this.fetchRoomQuantity();
+    this.fetchRoomType();
+    window.addEventListener('resize', this.handleResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize);
   },
   methods: {
-    async fetchRoomQuantity() {
+    async fetchRoomType() {
       try {
-        const response = await axios.get(`http://localhost:3000/quantity/type1a`);
-        this.roomQuantity = response.data.quantity;
+        const response = await axios.get(`http://localhost:3000/type/type1a`);
+        this.roomType = response.data;
       } catch (error) {
-        console.error('Có lỗi xảy ra khi lấy số lượng phòng:', error);
+        console.error('Lấy thông tin phòng thất bại:', error);
         alert('Có lỗi xảy ra, vui lòng thử lại');
       }
-    }
+    },
+   
   }
 };
 </script>
 
 <style scoped>
-.address-info {
-  width: 100vw;
-  height: 2.5cm;
-  background-color: yellowgreen;
-  padding: 1cm 2.5cm;
-  position: relative;
-  left: -100px;
-  top: 2cm;
+.room-details {
+  display: flex;
+  flex-direction: column;
 }
 
-.container {
-  margin-top: -0.2cm;
-}
-
-.label {
-  font-weight: bold;
+.back-button {
+  width: 2cm;
+  margin: 2cm auto 1cm;
+  margin-left: 0cm;
+  cursor: pointer;
 }
 
 .room-info {
-  margin-top: 1cm;
+  margin-top: 0cm;
   font-family: Arial, sans-serif;
   color: #333;
   line-height: 1.6;
@@ -109,10 +99,7 @@ export default {
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
-  margin-right: 10cm;
   color: yellowgreen;
-  display: flex;
-  justify-content: center;
 }
 
 .detail-title {
@@ -127,16 +114,14 @@ export default {
   margin-bottom: 15px;
   color: #0f4a1a;
 }
-td {
-  vertical-align: top;
-  margin-top: 2cm;
-  margin-left: 10cm;
-  margin-right: 5cm;
-}
+
 table {
-  width: 100vw;
+  width: 100%;
 }
+
 td {
-  width: 30%;
+  padding: 10px;
+  vertical-align: top;
 }
+
 </style>

@@ -42,10 +42,37 @@ const typeroomSchema = new mongoose.Schema({
     quantity: {
         type: Number,
         required: true,
+    },
+    expense: {
+        type: Number,
+        require: true,
+    }, 
+    bed: {
+        type: String,
+        required: true,
+    }, 
+    area:{
+        type: String,
+        required: true,
+    },
+    internet: {
+        type: String,
+        required: true,
     }
-})
+});
+const foodSchema = new mongoose.Schema({
+    namefood: {
+        type: String,
+        required: true,
+    },
+    response: {
+        type: Number,
+        required: true,
+    }
+});
 
 const Booking = mongoose.model('Booking', bookingSchema);
 const Typeroom = mongoose.model('Typeroom', typeroomSchema);
+const Food = mongoose.model('Food', foodSchema);
 
-module.exports = {Booking, Typeroom};
+module.exports = {Booking, Typeroom, Food};

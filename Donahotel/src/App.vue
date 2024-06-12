@@ -1,7 +1,7 @@
 <script >
   import Header from './components/Header.vue'
   import Footer from './components/Footer.vue'
-  // document.body.style.overflowX = 'hidden';
+  document.body.style.overflowX = 'hidden';
   export default {
       name: 'App',
       components: {

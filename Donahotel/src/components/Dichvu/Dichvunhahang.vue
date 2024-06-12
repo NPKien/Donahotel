@@ -1,142 +1,132 @@
 <template>
-  <div class="address-info">
-    <div class="container">
-      <span class="label">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
-      <span class="label">SĐT Đặt Chỗ :</span> 0292 376 3333 - 3 766 333 - 376 6666
+
+  <div class="restaurant-details">
+    <img class="back-button" src="../picture/back.png" alt="Back" @click.prevent="scrollToSection('dichvu')">
+    <img src="../picture/dichvu.jpg" alt="Restaurant Image" class="restaurant-image">
+    <div class="content">
+      <h1>Nhà hàng khách sạn</h1>
+      <p>Chào mừng đến với nhà hàng của chúng tôi, nơi bạn sẽ được trải nghiệm ẩm thực tuyệt vời nhất.</p>
+      <h2>Menu</h2>
+      <ul>
+        <li><strong>Phở bò:</strong> 100.000 VND</li>
+      <li v-for="food in foods" :key="food._id">
+        <strong>{{ food?.namefood }}:</strong> {{ food?.response }} VND
+
+      </li>
+    </ul>
+      <h2>Dịch vụ đặc biệt</h2>
+      <p>Chúng tôi cung cấp dịch vụ tổ chức tiệc, sự kiện với không gian sang trọng và đội ngũ phục vụ chuyên nghiệp.</p>
     </div>
-  </div>
-  <br>
-  <img style="width: 2cm; position: relative; top: 2cm;" src="../picture/back.png" alt="" @click.prevent="scrollToSection('section1')"> <br>
-  <div class="room-info" >
-    <h3 class="section-title" >Phòng loại 1a</h3>
-    <table>
-      <tr>
-        <td>
-          <h2 class="detail-title">2 Giường đôi</h2>
-        </td>
-        <td>
-          <h2 class="detail-title">Diện tích</h2>
-          <span class="detail-text">20m²</span>
-        </td>
-        <td>
-          <h2 class="detail-title">Internet</h2>
-          <p class="detail-text">Internet (thu phụ phí)</p>
-          <p class="detail-text">Internet có dây trong phòng.</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h2 class="detail-title">Số phòng còn lại: </h2>
-        </td>
-        <td>
-          <span class="detail-text">{{ roomQuantity }}</span>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h2 class="detail-title">Giá: </h2>
-        </td>
-        <td>
-          <span class="detail-text">Ghi ở đây</span>
-        </td>
-        <td>
-        </td>
-      </tr>
-    </table>
-    <div>test</div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import { scrollMixin } from "../mixin/scrollMixin";
-import axios from "axios"; // Thêm import axios vào đây
-
 export default {
-  name: 'Phongloai1a',
+  name: 'RestaurantDetails',
   mixins: [scrollMixin],
-  inheritAttrs: false,
-  data() { // Khởi tạo roomQuantity trong data
+  data(){
     return {
-      roomQuantity: null
+      foods: []
     };
   },
-  mounted() {
-    this.fetchRoomQuantity();
-  },
-  methods: {
-    async fetchRoomQuantity() {
-      try {
-        const response = await axios.get(`http://localhost:3000/quantity/type1a`);
-        this.roomQuantity = response.data.quantity;
-      } catch (error) {
-        console.error('Có lỗi xảy ra khi lấy số lượng phòng:', error);
-        alert('Có lỗi xảy ra, vui lòng thử lại');
-      }
+  async mounted() {
+    try {
+      const response = await axios.get('http://localhost:3000/food/all');
+      this.foods = response.data;
+    } catch (error) {
+      console.error('Lấy danh sách món ăn thất bại:', error);
+      alert('Có lỗi xảy ra, vui lòng thử lại');
     }
   }
 };
 </script>
 
 <style scoped>
-.address-info {
-  width: 100vw;
-  height: 2.5cm;
-  background-color: yellowgreen;
-  padding: 1cm 2.5cm;
-  position: relative;
-  left: -100px;
-  top: 2cm;
-}
-
-.container {
-  margin-top: -0.2cm;
-}
-
-.label {
-  font-weight: bold;
-}
-
-.room-info {
-  margin-top: 1cm;
-  font-family: Arial, sans-serif;
-  color: #333;
-  line-height: 1.6;
-}
-
-.section-title {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  margin-right: 10cm;
-  color: yellowgreen;
+.restaurant-details {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  position: relative;
 }
-
-.detail-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #0f4a1a;
+.back-button {
+  width: 2cm;
+  position: absolute;
+  top: 2cm;
+  left: 0cm;
+  cursor: pointer;
 }
-
-.detail-text {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #0f4a1a;
+@media (max-width: 920px) {
+  .back-button {
+  width: 2cm;
+  position: absolute;
+  top: 2cm;
+  left: -1cm;
+  cursor: pointer;
 }
-td {
-  vertical-align: top;
+}
+@media (max-width: 830px) {
+  .back-button {
+  width: 2cm;
+  position: absolute;
+  top: 2cm;
+  left: -2cm;
+  cursor: pointer;
+}
+}
+@media (max-width: 830px) {
+  .back-button {
+  width: 1.5cm;
+  position: absolute;
+  top: 2cm;
+  left: -2cm;
+  cursor: pointer;
+}
+}
+.restaurant-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
   margin-top: 2cm;
-  margin-left: 10cm;
-  margin-right: 5cm;
 }
-table {
-  width: 100vw;
+
+.content {
+  max-width: 800px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-td {
-  width: 30%;
+
+h1 {
+  color: #333;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #666;
+  font-size: 28px;
+  margin: 20px 0 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+strong {
+  color: #333;
 }
 </style>
