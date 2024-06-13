@@ -46,9 +46,11 @@
       </div>
       <div v-if="showGuide">
         <div class="guide-form">
-          <div class="qa-box" v-for="qa in qaList" :key="qa.question">
-            <div class="question">{{ qa.question }}</div>
-            <div class="answer">{{ qa.answer }}</div>
+          <div v-if="qaList.length > 0">
+            <div class="qa-box" v-for="qa in qaList" :key="qa.question">
+              <div class="question">{{ qa.question }}</div>
+              <div class="answer">{{ qa.answer }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -63,6 +65,7 @@
 
 
 <script>
+import axios from 'axios';
 import { scrollMixin } from './mixin/scrollMixin';
 
 export default {
@@ -75,20 +78,13 @@ export default {
       showInfo: true,
       showMenu: window.innerWidth >= 992,
       isMobile: window.innerWidth < 992,
-      qaList: [
-        { question: "Làm thế nào để đặt phòng?", answer: "Bạn có thể đặt phòng bằng cách truy cập vào trang web của chúng tôi và chọn mục 'Đặt phòng'." },
-        { question: "Có cần phải đặt cọc khi đặt phòng không?", answer: "Có, để đảm bảo việc đặt phòng của bạn, chúng tôi yêu cầu một khoản đặt cọc. Khoản cọc này sẽ được hoàn trả sau khi bạn thanh toán đầy đủ tiền phòng." },
-        { question: "Giá phòng tại khách sạn áp dụng theo phòng hay theo số lượng người?", answer: "Các mức giá được áp dụng cho hai người/phòng và người thứ ba sẽ được tính phí thêm 200.000 VND với giường phụ." },
-        { question: "Làm thế nào để đặt phòng cho người khác tại khách sạn?", answer: "Quý khách chỉ cần cung cấp tên của khách nhận phòng khách sạn và số điện thoại, địa chỉ email của khách để Khách sạn liên hệ, Khách sạn sẽ gửi xác nhận qua email, số điện thoại mà Quý khách cung cấp." },
-        { question: "Khách sạn có sẵn mạng Internet hay không ?", answer: "Toàn bộ khách sạn được thiết lập hệ thống internet không dây được sử dụng hoàn toàn miễn phí. Quý khách có thể liên hệ với quầy lễ tân để biết tên đăng nhập và mật khẩu. Mạng không dây cũng đều có sẵn ở mỗi phòng khách." },
-        { question: "Khách sạn có khu vui chơi cho trẻ em hay không ?", answer: "Chúng tôi hiện chưa có khu vui chơi cho trẻ em. Tuy nhiên ngay cạnh Khách sạn của chúng tôi là khu vui chơi cho trẻ em." },
-        { question: "Làm cách nào tôi có thể hủy phòng mà không bị tính phí ?", answer: "Tuỳ thuộc vào các điều kiện khi đặt phòng, quý khách nên vui lòng liên hệ với bộ phận đặt phòng của chúng tôi để biết thêm thông tin chi tiết." }
-      ]
+      qaList: [],
     };
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
+    this.fetchQAList();
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -113,7 +109,16 @@ export default {
       if (window.innerWidth >= 992) {
         this.showMenu = true;
       }
-    }
+    },
+    async fetchQAList() {
+      try {
+        const response = await axios.get('http://localhost:3000/question');
+        this.qaList = response.data;
+      } catch (error) {
+        console.error('Lấy danh sách Q&A thất bại:', error);
+        alert('Có lỗi xảy ra, vui lòng thử lại');
+      }
+    },
   }
 }
 </script>

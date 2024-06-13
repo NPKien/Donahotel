@@ -70,9 +70,20 @@ const foodSchema = new mongoose.Schema({
         required: true,
     }
 });
-
+const QuestionSchema = new mongoose.Schema({
+    question: {
+      type: String,
+      required: true,
+    },
+    answer: {
+      type: String,
+      required: true,
+    },
+  });
+  
+const Question = mongoose.model('Question', QuestionSchema);  
 const Booking = mongoose.model('Booking', bookingSchema);
 const Typeroom = mongoose.model('Typeroom', typeroomSchema);
 const Food = mongoose.model('Food', foodSchema);
 
-module.exports = {Booking, Typeroom, Food};
+module.exports = {Booking, Typeroom, Food, Question};

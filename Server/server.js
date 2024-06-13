@@ -15,6 +15,7 @@ mongoose.connect('mongodb://localhost:27017/donahotel', {
 const bookingRoutes = require('./routes/bookingRoutes');
 const typeroomRoutes = require('./routes/typeroomRoutes');
 const foodRoutes = require('./routes/foodRoutes');
+const questionRoutes = require('./routes/questionRoutes');
 
 
 app.use(cors());
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use('/booking', bookingRoutes);
 app.use('/type', typeroomRoutes);
 app.use('/food', foodRoutes);
+app.use('/question', questionRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

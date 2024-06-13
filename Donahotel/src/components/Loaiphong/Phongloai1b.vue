@@ -1,51 +1,40 @@
 <template>
   <div class="room-details">
     <img class="back-button" src="../picture/back.png" alt="Back" @click.prevent="scrollToSection('phong')">
-    <div class="room-info">
-      <h3 class="section-title">Phòng loại 1b</h3>
-      <table>
-        <tr>
-          <td>
-            <h2 class="detail-title">{{ roomType?.bed}}</h2>
-          </td>
-          <td>
-            <h2 class="detail-title">Diện tích</h2>
-            <span class="detail-text">{{ roomType?.area }}m²</span>
-          </td>
-          <td>
-            <h2 class="detail-title">Internet</h2>
-            <p class="detail-text">{{ roomType?.internet }}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h2 class="detail-title">Số phòng còn lại: </h2>
-          </td>
-          <td>
-            <span class="detail-text">{{ roomType?.quantity }}</span>
-          </td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>
-            <h2 class="detail-title">Giá: </h2>
-          </td>
-          <td>
-            <span class="detail-text">{{ roomType?.expense }}</span>
-          </td>
-          <td></td>
-        </tr>
-      </table>
+    <img src="../picture/phongloai1b.jpg" alt="Room Image" class="room-image">
+    <div class="content">
+      <h1>Loại phòng khách sạn</h1>
+      <p>Khám phá các loại phòng đa dạng của chúng tôi, phù hợp với mọi nhu cầu của bạn.</p>
+      <h2>Phòng loại 1b</h2>
+      <ul>
+        <li>
+          <strong>Giường:</strong> {{ roomType?.bed }}
+        </li>
+        <li>
+          <strong>Diện tích:</strong> {{ roomType?.area }} m²
+        </li>
+        <li>
+          <strong>Internet:</strong> {{ roomType?.internet }}
+        </li>
+        <li>
+          <strong>Số phòng còn lại:</strong> {{ roomType?.quantity }}
+        </li>
+        <li>
+          <strong>Giá:</strong> {{ roomType?.expense }} VND
+        </li>
+      </ul>
+      <h2>Dịch vụ đặc biệt</h2>
+      <p>Chúng tôi cung cấp dịch vụ phòng với các tiện nghi hiện đại và dịch vụ chu đáo, đảm bảo sự hài lòng của bạn.</p>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import { scrollMixin } from "../mixin/scrollMixin";
-import axios from "axios";
 
 export default {
-  name: 'Phongloai1b',
+  name: 'Phongloai1a',
   mixins: [scrollMixin],
   data() {
     return {
@@ -70,7 +59,6 @@ export default {
         alert('Có lỗi xảy ra, vui lòng thử lại');
       }
     },
-   
   }
 };
 </script>
@@ -79,49 +67,91 @@ export default {
 .room-details {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  position: relative;
 }
 
 .back-button {
   width: 2cm;
-  margin: 2cm auto 1cm;
-  margin-left: 0cm;
+  position: absolute;
+  top: 2cm;
+  left: 0cm;
   cursor: pointer;
 }
 
-.room-info {
-  margin-top: 0cm;
-  font-family: Arial, sans-serif;
-  color: #333;
-  line-height: 1.6;
+@media (max-width: 920px) {
+  .back-button {
+    width: 2cm;
+    position: absolute;
+    top: 2cm;
+    left: -1cm;
+    cursor: pointer;
+  }
 }
 
-.section-title {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: yellowgreen;
+@media (max-width: 830px) {
+  .back-button {
+    width: 2cm;
+    position: absolute;
+    top: 2cm;
+    left: -2cm;
+    cursor: pointer;
+  }
 }
 
-.detail-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #0f4a1a;
+@media (max-width: 830px) {
+  .back-button {
+    width: 1.5cm;
+    position: absolute;
+    top: 2cm;
+    left: -2cm;
+    cursor: pointer;
+  }
 }
 
-.detail-text {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #0f4a1a;
-}
-
-table {
+.room-image {
   width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 2cm;
 }
 
-td {
-  padding: 10px;
-  vertical-align: top;
+.content {
+  max-width: 800px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+h1 {
+  color: #333;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #666;
+  font-size: 28px;
+  margin: 20px 0 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+strong {
+  color: #333;
+}
 </style>
