@@ -1,96 +1,114 @@
 <template>
-  <div class="imformation home">
-      <div class="container">
-        <span style="font-weight: bold;">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
-        <span style="font-weight: bold;">SĐT Đặt Chỗ :</span> 0292 376 3333 - 3 766 333 - 376 6666
-      </div>
-  </div>
-  <br>
-  <div class="info-container">
-    <img style="margin-top: 1cm; width: 2cm;" src="./picture/back.png" alt="" @click.prevent="scrollToSection('section5')"> <br>
-    <h2 class="hotel-title">Khách sạn Dona</h2>
-    <p class="hotel-address">Lô B TTTM Cái Khế Đường Trần Phú, Phường Cái Khế, Quận Ninh Kiều, Thành phố Cần Thơ</p>
-    <h3 class="section-title">Giới thiệu</h3>
-    <p class="intro-text">Khách sạn Dona là khách sạn tiêu chuẩn 2 sao, trực thuộc Công ty cổ phần Dona. Là một trong những khách sạn lớn, hiện đại của Thành phố Cần Thơ nằm ở vị trí thuận lợi trong TTTM Cái Khế, Dona là nơi nghỉ ngơi tuyệt vời cho cả khách du lịch và nghỉ dưỡng.</p>
-    <h3 class="section-title">Thông tin liên hệ</h3>
-    <p class="contact-info">Số điện thoại: 02923 766 666</p>
-    <p class="contact-info">Địa chỉ: Lô B TTTM Cái Khế Đường Trần Phú, Phường Cái Khế, Quận Ninh Kiều, Thành phố Cần Thơ</p>
-    <h3 class="section-title">Dịch vụ</h3>
-    <ul class="services-list">
-      <li class="service-item">Dịch vụ nhà hàng</li>
-    </ul>
+  <div class="hotel-details">
+    <img class="back-button" src="./picture/back.png" alt="Back" @click.prevent="scrollToSection('footer')">
+    <div class="content">
+      <h1>Khách sạn Dona</h1>
+      <p>Chào mừng đến với khách sạn Dona, nơi bạn sẽ được trải nghiệm dịch vụ nghỉ dưỡng tuyệt vời nhất.</p>
+      <h2>Giới thiệu</h2>
+      <p>Khách sạn Dona là khách sạn tiêu chuẩn 2 sao, trực thuộc Công ty cổ phần Dona. Là một trong những khách sạn lớn, hiện đại của Thành phố Cần Thơ nằm ở vị trí thuận lợi trong TTTM Cái Khế, Dona là nơi nghỉ ngơi tuyệt vời cho cả khách du lịch và nghỉ dưỡng.</p>
+      <h2>Thông tin liên hệ</h2>
+      <p>Số điện thoại: 02923 766 666</p>
+      <p>Địa chỉ: Lô B TTTM Cái Khế Đường Trần Phú, Phường Cái Khế, Quận Ninh Kiều, Thành phố Cần Thơ</p>
+      <h2>Dịch vụ</h2>
+      <ul>
+        <li>Dịch vụ nhà hàng</li>
+      </ul>
+    </div>
   </div>
 </template>
-
 <script>
-import { scrollMixin } from "./mixin/scrollMixin";
+import { scrollMixin } from './mixin/scrollMixin';
+
 export default {
+  name: 'HotelDetails',
   mixins: [scrollMixin],
+  data() {
+    return {
+      
+    };
+  },
+  methods: {
+    
+  },
 };
 </script>
-
 <style scoped>
-.home {
-  width: 100vw;
-  position: relative;
-  left: -100px;
-  top: 2cm;
-}
-
-.imformation {
-  height: 2cm;
-  line-height: 0.7cm;
-  background-color: yellowgreen;
-}
-
-.container {
-  position: relative;
-  top: 0.4cm;
-  margin-left: 2.5cm;
-  margin-bottom: 1cm;
-}
-
-.info-container {
-  margin-top: 1cm;
+.hotel-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   font-family: Arial, sans-serif;
+  margin: 20px;
+  position: relative;
+  top:1cm;
+}
+.back-button {
+  width: 2cm;
+  position: absolute;
+  top: 2cm;
+  left: 0cm;
+  cursor: pointer;
+}
+@media (max-width: 920px) {
+  .back-button {
+  width: 2cm;
+  position: absolute;
+  top: 2cm;
+  left: -1cm;
+  cursor: pointer;
+}
+}
+@media (max-width: 830px) {
+  .back-button {
+  width: 2cm;
+  position: absolute;
+  top: 2cm;
+  left: -2cm;
+  cursor: pointer;
+}
+}
+@media (max-width: 830px) {
+  .back-button {
+  width: 1.5cm;
+  position: absolute;
+  top: 2cm;
+  left: -2cm;
+  cursor: pointer;
+}
+}
+.content {
+  max-width: 800px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
   color: #333;
-  line-height: 1.6;
-}
-
-.hotel-title {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 36px;
   margin-bottom: 10px;
-  color: #0f4a1a;
 }
 
-.hotel-address, .contact-info {
-  font-size: 16px;
-  margin-bottom: 15px;
+h2 {
+  color: #666;
+  font-size: 28px;
+  margin: 20px 0 10px;
 }
 
-.section-title {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: yellowgreen;
+p {
+  font-size: 18px;
+  margin: 5px 0;
 }
 
-.intro-text {
-  font-size: 20px;
-  margin-bottom: 15px;
-  color: #0f4a1a;
-}
-
-.services-list {
+ul {
   list-style-type: none;
-  margin-left: 0;
-  padding-left: 0;
+  padding: 0;
 }
 
-.service-item {
-  font-size: 20px;
-  margin-bottom: 5px;
-  color: #0f4a1a;
+li {
+  font-size: 18px;
+  margin: 5px 0;
 }
 </style>

@@ -18,11 +18,11 @@
               <td>
                 <div class="col">
                   <p>Chuyên mục</p>
-                  <p @click.prevent="scrollToSection('section2')">Booking</p>
-                  <p @click.prevent="scrollToSection('section4')">Dịch vụ</p>
+                  <p @click.prevent="scrollToSection('datphong')">Booking</p>
+                  <p @click.prevent="scrollToSection('dichvu')">Dịch vụ</p>
                   <p @click.prevent="redirectToIntroductionPage">Giới Thiệu</p>
-                  <p @click.prevent="scrollToSection('section5')" >Liên Hệ</p>
-                  <p @click.prevent="scrollToSection('section1')">Phòng</p>
+                  <p @click.prevent="scrollToSection('footer')" >Liên Hệ</p>
+                  <p @click.prevent="scrollToSection('phong')">Phòng</p>
                 </div>
               </td>
               <td>
@@ -34,8 +34,8 @@
                 <div class="col">
                   <p>Bài viết mới</p>
                   <p @click.prevent="redirectToIntroductionPage">Giới Thiệu</p>
-                  <p @click.prevent="scrollToSection('section5')">Liên Hệ</p>
-                  <p @click.prevent="scrollToSection('section2')">Đặt Phòng</p>
+                  <p @click.prevent="scrollToSection('footer')">Liên Hệ</p>
+                  <p @click.prevent="scrollToSection('datphong')">Đặt Phòng</p>
                   <p @click.prevent="redirectTovip1Page">PHÒNG VIP 1</p>
                   <p @click.prevent="redirectTodvnhPage">Dịch Vụ Nhà Hàng</p>
                 </div>
@@ -43,10 +43,10 @@
               <td>
                 <div class="col">
                   <p @click.prevent="redirectTochinhsachPage">CHÍNH SÁCH CÔNG TY</p>
-                  <p @click.prevent="scrollToSection('section2')">Hình thức đặt phòng</p>
-                  <p @click.prevent="scrollToSection('section5')">Hình thức thanh toán</p>
+                  <p @click.prevent="scrollToSection('datphong')">Hình thức đặt phòng</p>
+                  <p @click.prevent="scrollToSection('footer')">Hình thức thanh toán</p>
                   <p>Bảo mật thông tin khách hàng</p>
-                  <p @click.prevent="scrollToSection('section5')">Hotline liên hệ</p>
+                  <p @click.prevent="scrollToSection('footer')">Hotline liên hệ</p>
                   <p><img src="./picture/phoneicon.png" alt="Phone Icon" class="phone-icon"> 0292 3763 333</p>
                   <br><br>
                 </div>

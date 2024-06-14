@@ -1,38 +1,32 @@
 <template>
-    <div class="address-info">
-      <div class="container">
-        <span class="label">Địa Chỉ :</span> Lô B, TTTM Cái Khế, Trần Phú, Ninh Kiều, TP.Cần Thơ. <br>
-        <span class="label">SĐT Đặt Chỗ :</span> 0292 376 3333 - 3 766 333 - 376 6666
-      </div>
-    </div>
-    <br>
-    <img style="width: 2cm; position: relative; top: 2cm;" src="../picture/back.png" alt="" @click.prevent="scrollToSection('section5')"> <br>
-    <div class="room-info" >
-      <h3 class="section-title" >Chính sách công ty</h3>
+  <div class="policy-details">
+    <img class="back-button" src="../picture/back.png" alt="Back" @click.prevent="scrollToSection('footer')">
+    <div class="room-info">
+      <h2 class="section-title">Chính sách công ty</h2>
       <table>
         <tr>
           <td>
-            <h2 class="detail-title">Thời gian nhận và trả phòng</h2>
+            <h3 class="detail-title">Thời gian nhận và trả phòng</h3>
           </td>
           <td>
             <span class="detail-text">Nhận phòng: </span>
-            <span class="detail-title">Sau 14:00</span><br>
+            <span class="detail-value">Sau 14:00</span><br>
             <span class="detail-text">Trả phòng: </span>
-            <span class="detail-title">Trước 12:00</span>
+            <span class="detail-value">Trước 12:00</span>
           </td>
         </tr>
         <tr>
           <td>
-            <h2 class="detail-title">Bữa sáng</h2>
+            <h3 class="detail-title">Bữa sáng</h3>
           </td>
           <td>
-            <span class="detail-title">Loại: </span>
-            <span class="detail-text">Tây phương</span>
+            <span class="detail-text">Loại: </span>
+            <span class="detail-value">Tây phương</span>
           </td>
         </tr>
         <tr>
           <td>
-            <h2 class="detail-title">Thú cưng</h2>
+            <h3 class="detail-title">Thú cưng</h3>
           </td>
           <td>
             <span class="detail-text">Không được phép mang theo thú cưng</span>
@@ -40,86 +34,110 @@
         </tr>
         <tr>
           <td>
-            <h2 class="detail-title">Thanh toán tại khách sạn</h2>
+            <h3 class="detail-title">Thanh toán tại khách sạn</h3>
           </td>
           <td>
-            <span class="detail-text"><img src="../picture/thanhtoan.png" alt=""></span>
+            <span class="detail-text"><img src="../picture/thanhtoan.png" alt="Payment Methods"></span>
           </td>
         </tr>
       </table>
-      <div>test</div>
     </div>
-  </template>
-  
-  <script>
-  import {scrollMixin} from "../mixin/scrollMixin";
-  export default {
-    mixins: [scrollMixin],
-  };
-  </script>
-  
-  <style scoped>
-  .address-info {
-    width: 100vw;
-    height: 2.5cm;
-    background-color: yellowgreen;
-    padding: 1cm 2.5cm;
-    position: relative;
-    left: -100px;
+  </div>
+</template>
+<script>
+import { scrollMixin } from '../mixin/scrollMixin';
+
+export default {
+  name: 'PolicyDetails',
+  mixins: [scrollMixin],
+};
+</script>
+<style scoped>
+.policy-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  position: relative;
+  top: 1cm;
+}
+
+.back-button {
+  width: 2cm;
+  position: absolute;
+  top: 2cm;
+  left: 0cm;
+  cursor: pointer;
+}
+
+@media (max-width: 920px) {
+  .back-button {
+    width: 2cm;
+    position: absolute;
     top: 2cm;
+    left: -1cm;
+    cursor: pointer;
   }
-  
-  .container {
-    margin-top: -0.2cm;
+}
+
+@media (max-width: 830px) {
+  .back-button {
+    width: 2cm;
+    position: absolute;
+    top: 2cm;
+    left: -2cm;
+    cursor: pointer;
   }
-  
-  .label {
-    font-weight: bold;
+}
+
+@media (max-width: 830px) {
+  .back-button {
+    width: 1.5cm;
+    position: absolute;
+    top: 2cm;
+    left: -2cm;
+    cursor: pointer;
   }
-  
-  .room-info {
-    margin-top: 1cm;
-    font-family: Arial, sans-serif;
-    color: #333;
-    line-height: 1.6;
-  }
-  
-  .section-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-right: 10cm;
-    color: yellowgreen;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .detail-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #0f4a1a;
-  }
-  
-  .detail-text {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: #0f4a1a;
-  }
-  td{
-    vertical-align: top;
-    margin-top: 2cm;
-    margin-left: 10cm;
-    margin-right: 5cm;
-  }
-  table{
-    width: 100vw;
-  }
-  td{
-    width: 30%;
-  }
-  tr{
-    height: 2cm;
-  }
-  </style>
-  
+}
+
+.room-info {
+  max-width: 800px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  color: #666;
+  font-size: 28px;
+  margin: 20px 0 10px;
+}
+
+.detail-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.detail-text {
+  color: #0f4a1a;
+  font-size: 18px;
+}
+
+.detail-value {
+  color: #333;
+  font-size: 18px;
+}
+
+table {
+  width: 100%;
+  border-spacing: 0 1cm;
+}
+
+td {
+  vertical-align: top;
+}
+</style>
