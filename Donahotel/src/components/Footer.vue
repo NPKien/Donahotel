@@ -118,7 +118,6 @@ export default {
   padding: 0 20px;
   box-sizing: border-box;
   position: relative;
-  left: -100px;
   bottom: 0;
 }
 .footer-bot {
@@ -128,7 +127,6 @@ export default {
   align-items: center;
   box-sizing: border-box;
   position: relative;
-  left: -100px;
   bottom: 0;
   display: flex;
   justify-content: space-around;
@@ -143,7 +141,6 @@ export default {
   align-items: center;
   box-sizing: border-box;
   position: relative;
-  left: -100px;
   bottom: 0;
 }
 .container {
@@ -206,11 +203,10 @@ p {
 td {
   vertical-align: top;
 }
-/* Đảm bảo bố cục phù hợp cho các màn hình di động */
-/* Đảm bảo kích thước chữ phù hợp cho các màn hình di động */
+
 @media only screen and (max-width: 768px) {
   p {
-    font-size: 14px; /* Giảm kích thước chữ xuống */
+    font-size: 14px; 
   }
   .col {
   flex: 1;
@@ -232,10 +228,9 @@ td {
     height: 150px;
 }
 }
-/* Đảm bảo kích thước chữ phù hợp cho các màn hình di động nhỏ */
 @media only screen and (max-width: 480px) {
   p {
-    font-size: 12px; /* Giảm kích thước chữ xuống thêm */
+    font-size: 12px;
   }
   .col {
   flex: 1;
@@ -244,8 +239,12 @@ td {
   .footer-section {
     flex: 1;
     margin: 10px;
-    margin-left: 2cm;
+    margin-left: 0.5cm;
     height: 150px;
+}
+.payment-icon {
+  width: 150px;
+  height: auto;
 }
 }
 

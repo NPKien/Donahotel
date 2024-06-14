@@ -37,7 +37,7 @@
             <h3 class="detail-title">Thanh toán tại khách sạn</h3>
           </td>
           <td>
-            <span class="detail-text"><img src="../picture/thanhtoan.png" alt="Payment Methods"></span>
+            <span class="detail-text"><img src="../picture/thanhtoan.png" alt="Payment Methods" class="picthanhtoan"></span>
           </td>
         </tr>
       </table>
@@ -77,7 +77,7 @@ export default {
     width: 2cm;
     position: absolute;
     top: 2cm;
-    left: -1cm;
+    left: 0.7cm;
     cursor: pointer;
   }
 }
@@ -87,17 +87,16 @@ export default {
     width: 2cm;
     position: absolute;
     top: 2cm;
-    left: -2cm;
+    left: -0.5cm;
     cursor: pointer;
   }
 }
-
-@media (max-width: 830px) {
+@media (max-width: 740px) {
   .back-button {
-    width: 1.5cm;
+    width: 1cm;
     position: absolute;
-    top: 2cm;
-    left: -2cm;
+    top: 1.3cm;
+    left: 1cm;
     cursor: pointer;
   }
 }
@@ -139,5 +138,54 @@ table {
 
 td {
   vertical-align: top;
+}
+@media (max-width: 650px) {
+  .back-button {
+    width: 1cm;
+    position: absolute;
+    top: 1.3cm;
+    left: 1cm;
+    cursor: pointer;
+  }
+  .detail-title {
+  color: #333;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.detail-text {
+  color: #0f4a1a;
+  font-size: 13px;
+}
+
+.detail-value {
+  color: #333;
+  font-size: 13px;
+}
+}
+@media (max-width: 580px) {
+  .back-button {
+    width: 1cm;
+    position: absolute;
+    top: 1.3cm;
+    left: -0.5cm;
+    cursor: pointer;
+  }
+  .detail-title {
+  color: #333;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.detail-text {
+  color: #0f4a1a;
+  font-size: 10px;
+}
+
+.detail-value {
+  color: #333;
+  font-size: 10px;
+}
+.picthanhtoan{
+  width: 4cm;
+}
 }
 </style>

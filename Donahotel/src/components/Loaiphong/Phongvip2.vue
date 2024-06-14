@@ -81,13 +81,12 @@ export default {
   left: 0cm;
   cursor: pointer;
 }
-
 @media (max-width: 920px) {
   .back-button {
     width: 2cm;
     position: absolute;
     top: 2cm;
-    left: -1cm;
+    left: 0.7cm;
     cursor: pointer;
   }
 }
@@ -97,17 +96,16 @@ export default {
     width: 2cm;
     position: absolute;
     top: 2cm;
-    left: -2cm;
+    left: -0.5cm;
     cursor: pointer;
   }
 }
-
-@media (max-width: 830px) {
+@media (max-width: 740px) {
   .back-button {
-    width: 1.5cm;
+    width: 1cm;
     position: absolute;
-    top: 2cm;
-    left: -2cm;
+    top: 1.3cm;
+    left: -0.7cm;
     cursor: pointer;
   }
 }

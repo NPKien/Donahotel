@@ -62,30 +62,31 @@ export default {
 }
 @media (max-width: 920px) {
   .back-button {
-  width: 2cm;
-  position: absolute;
-  top: 2cm;
-  left: -1cm;
-  cursor: pointer;
+    width: 2cm;
+    position: absolute;
+    top: 2cm;
+    left: 0.7cm;
+    cursor: pointer;
+  }
 }
-}
+
 @media (max-width: 830px) {
   .back-button {
-  width: 2cm;
-  position: absolute;
-  top: 2cm;
-  left: -2cm;
-  cursor: pointer;
+    width: 2cm;
+    position: absolute;
+    top: 2cm;
+    left: -0.5cm;
+    cursor: pointer;
+  }
 }
-}
-@media (max-width: 830px) {
+@media (max-width: 740px) {
   .back-button {
-  width: 1.5cm;
-  position: absolute;
-  top: 2cm;
-  left: -2cm;
-  cursor: pointer;
-}
+    width: 1cm;
+    position: absolute;
+    top: 1.3cm;
+    left: -0.7cm;
+    cursor: pointer;
+  }
 }
 .restaurant-image {
   width: 100%;

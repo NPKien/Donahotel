@@ -228,7 +228,6 @@ export default {
   justify-content: center; 
   align-items: center;
   position: relative;
-  left: -100px;
 }
 }
 
@@ -256,7 +255,7 @@ export default {
   .picdonahotel {
   max-width: 100%;
   height: auto;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 }
 @media only screen and (max-width: 400px) {
@@ -272,7 +271,6 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1300px;
-  margin-left: -1cm;
 }
 
 .product {
