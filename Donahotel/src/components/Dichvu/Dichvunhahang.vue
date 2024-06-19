@@ -28,12 +28,13 @@ export default {
   mixins: [scrollMixin],
   data(){
     return {
-      foods: []
+      foods: [],
+      apiUrl: import.meta.env.VITE_API_URL,
     };
   },
   async mounted() {
     try {
-      const response = await axios.get('http://localhost:3000/food/all');
+      const response = await axios.get(`${this.apiUrl}/food/all`);
       this.foods = response.data;
     } catch (error) {
       console.error('Lấy danh sách món ăn thất bại:', error);

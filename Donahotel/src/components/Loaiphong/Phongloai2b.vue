@@ -39,7 +39,8 @@ export default {
   data() {
     return {
       roomType: null,
-      isMobile: window.innerWidth < 768
+      isMobile: window.innerWidth < 768,
+       apiUrl: import.meta.env.VITE_API_URL,
     };
   },
   mounted() {
@@ -52,7 +53,7 @@ export default {
   methods: {
     async fetchRoomType() {
       try {
-        const response = await axios.get(`http://localhost:3000/type/type2b`);
+        const response = await axios.get(`${this.apiUrl}/type/type2b`);
         this.roomType = response.data;
       } catch (error) {
         console.error('Lấy thông tin phòng thất bại:', error);

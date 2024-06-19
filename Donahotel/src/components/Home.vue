@@ -166,13 +166,14 @@ export default {
         { value: 4, text: 4 },
         { value: 5, text: 5 },
         { value: 6, text: 6 }
-      ]
+      ], 
+      apiUrl: import.meta.env.VITE_API_URL,
     };
   },
   methods: {
     async submitForm() {
       try {
-          const response = await axios.post('http://localhost:3000/booking', this.form);
+          const response = await axios.post(`${this.apiUrl}/booking`, this.form);
           alert('Đặt phòng thành công');
           this.resetForm();
       } catch (error) {

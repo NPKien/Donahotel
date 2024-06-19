@@ -79,12 +79,14 @@ export default {
       showMenu: window.innerWidth >= 992,
       isMobile: window.innerWidth < 992,
       qaList: [],
+      apiUrl: import.meta.env.VITE_API_URL,
     };
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('resize', this.handleResize);
     this.fetchQAList();
+    
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -93,7 +95,7 @@ export default {
   methods: {
     handleScroll() {
       this.showInfo = window.scrollY < 90;
-      this.isVisible = window.scrollY > 100; // logic cho nút scroll-to-top
+      this.isVisible = window.scrollY > 100;
     },
     toggleGuide() {
       this.showGuide = !this.showGuide;
@@ -112,7 +114,7 @@ export default {
     },
     async fetchQAList() {
       try {
-        const response = await axios.get('http://localhost:3000/question');
+        const response = await axios.get(`${this.apiUrl}/question`);
         this.qaList = response.data;
       } catch (error) {
         console.error('Lấy danh sách Q&A thất bại:', error);
