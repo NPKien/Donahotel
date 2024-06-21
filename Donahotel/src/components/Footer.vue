@@ -102,8 +102,7 @@ export default {
     };
   }, methods: {
     redirectToIntroductionPage() {
-      const url = `http://localhost:5173/introduce`;
-        window.location.href = url;
+      this.$router.push('/introduce');
     }
   }
 };
