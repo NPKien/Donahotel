@@ -11,10 +11,8 @@ export const scrollMixin = {
       this.isVisible = window.scrollY > 300;
     },
     scrollToSection(sectionId) {
-      // Nếu không ở trang chủ, chuyển đến trang chủ trước khi scroll
       if (this.$route.name !== 'Home') {
         this.$router.push({ name: 'Home' }).then(() => {
-          // Đợi 500ms trước khi cuộn tới section cụ thể
           setTimeout(() => {
             this.scrollSection(sectionId);
           }, 500);

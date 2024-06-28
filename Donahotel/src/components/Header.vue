@@ -80,6 +80,7 @@ export default {
       isMobile: window.innerWidth < 992,
       qaList: [],
       apiUrl: import.meta.env.VITE_API_URL,
+      gmail: ''
     };
   },
   mounted() {
@@ -100,8 +101,15 @@ export default {
     toggleGuide() {
       this.showGuide = !this.showGuide;
     },
-    openEmailComposer() {
-      window.open('https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=kienB1805882@student.ctu.edu.vn');
+    async openEmailComposer() {
+      try {
+        const response = await axios.get(`${this.apiUrl}/gmail/`);
+        this.gmail = response.data.gmail;
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${this.gmail}`);
+      } catch (error) {
+        console.error('Lấy địa chỉ email thất bại:', error);
+        alert('Có lỗi xảy ra, vui lòng thử lại');
+      }
     },
     toggleMenu() {
       this.showMenu = !this.showMenu;

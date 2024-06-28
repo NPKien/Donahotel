@@ -1,11 +1,11 @@
 <template>
   <div class="room-details">
     <img class="back-button" src="../picture/back.png" alt="Back" @click.prevent="scrollToSection('phong')">
-    <img src="../picture/phongloai2a.jpg" alt="Room Image" class="room-image">
+    <img :src="getRoomImage(roomType)" alt="Room Image" class="room-image">
     <div class="content">
       <h1>Loại phòng khách sạn</h1>
       <p>Khám phá các loại phòng đa dạng của chúng tôi, phù hợp với mọi nhu cầu của bạn.</p>
-      <h2>Phòng loại 2a</h2>
+      <h2>{{ roomType?.name }}</h2>
       <ul>
         <li>
           <strong>Giường:</strong> {{ roomType?.bed }}
@@ -34,7 +34,7 @@ import axios from 'axios';
 import { scrollMixin } from "../mixin/scrollMixin";
 
 export default {
-  name: 'Phongloai1a',
+  name: 'Roomtype',
   mixins: [scrollMixin],
   data() {
     return {
@@ -50,16 +50,29 @@ export default {
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
   },
+  watch: {
+    $route: 'fetchRoomType' 
+  },
   methods: {
     async fetchRoomType() {
       try {
-        const response = await axios.get(`${this.apiUrl}/type/type2a`);
+        const { type } = this.$route.params; 
+        const response = await axios.get(`${this.apiUrl}/type/${type}`);
         this.roomType = response.data;
       } catch (error) {
         console.error('Lấy thông tin phòng thất bại:', error);
         alert('Có lỗi xảy ra, vui lòng thử lại');
       }
     },
+    getRoomImage(room) {
+      if (room && room.picture && room.picture.data) {
+        const blob = new Blob([new Uint8Array(room.picture.data)], { type: 'image/jpeg' });
+        return URL.createObjectURL(blob);
+      }
+    },
+    handleResize() {
+      this.isMobile = window.innerWidth < 768;
+    }
   }
 };
 </script>

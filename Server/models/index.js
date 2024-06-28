@@ -35,29 +35,37 @@ const bookingSchema = new mongoose.Schema({
     },
 });
 const typeroomSchema = new mongoose.Schema({
+    picture: {
+        type: Buffer,
+        required: false,
+    },
     type: {
+        type: String,
+        required: true,
+    },
+    name: {
         type: String,
         required: true,
     },
     quantity: {
         type: Number,
-        required: true,
+        required: false,
     },
     expense: {
         type: Number,
-        require: true,
+        require: false,
     }, 
     bed: {
         type: String,
-        required: true,
+        required: false,
     }, 
     area:{
         type: String,
-        required: true,
+        required: false,
     },
     internet: {
         type: String,
-        required: true,
+        required: false,
     }
 });
 const foodSchema = new mongoose.Schema({
@@ -65,7 +73,7 @@ const foodSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    response: {
+    price: {
         type: Number,
         required: true,
     }
@@ -80,10 +88,32 @@ const QuestionSchema = new mongoose.Schema({
       required: true,
     },
   });
-  
+  const UserSchema = new mongoose.Schema({
+    user: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    role: {
+        type: Number,
+        required: true,
+    },
+  });
+  const GmailreceiveSchema = new mongoose.Schema({
+    gmail: {
+      type: String,
+      required: true,
+    }
+  });
+
 const Question = mongoose.model('Question', QuestionSchema);  
 const Booking = mongoose.model('Booking', bookingSchema);
 const Typeroom = mongoose.model('Typeroom', typeroomSchema);
 const Food = mongoose.model('Food', foodSchema);
+const User = mongoose.model('User', UserSchema);
+const Gmailreceive = mongoose.model('Gmailreceive', GmailreceiveSchema);
 
-module.exports = {Booking, Typeroom, Food, Question};
+module.exports = {Booking, Typeroom, Food, Question, User, Gmailreceive };

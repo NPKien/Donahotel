@@ -8,9 +8,8 @@
       <p>Chào mừng đến với nhà hàng của chúng tôi, nơi bạn sẽ được trải nghiệm ẩm thực tuyệt vời nhất.</p>
       <h2>Menu</h2>
       <ul>
-        <li><strong>Phở bò:</strong> 100.000 VND</li>
       <li v-for="food in foods" :key="food._id">
-        <strong>{{ food?.namefood }}:</strong> {{ food?.response }} VND
+        <strong>{{ food?.namefood }}:</strong> {{ food?.price }} VND
 
       </li>
     </ul>

@@ -18,6 +18,8 @@ const bookingRoutes = require('./routes/bookingRoutes');
 const typeroomRoutes = require('./routes/typeroomRoutes');
 const foodRoutes = require('./routes/foodRoutes');
 const questionRoutes = require('./routes/questionRoutes');
+const authRoutes = require('./routes/authRoutes');
+const gmailreceiveRoutes = require('./routes/gmailreceiveRoutes');
 
 
 app.use(cors());
@@ -28,6 +30,8 @@ app.use('/booking', bookingRoutes);
 app.use('/type', typeroomRoutes);
 app.use('/food', foodRoutes);
 app.use('/question', questionRoutes);
+app.use('/user', authRoutes);
+app.use('/gmail', gmailreceiveRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
