@@ -1,207 +1,200 @@
 <template>
-    <div>
-      <div class="heading">Địa chỉ nhận thư</div>
-      <br><br>
-      <div v-if="editMode">
-        <input v-model="gmail" placeholder="Địa chỉ email" class="edit-input" />
-        <button @click="toggleEdit" class="save-button">Lưu</button>
-      </div>
-      <div v-else>
-        <span class="email-display">{{ gmail }}</span>
-        <button @click="toggleEdit" class="edit-button">Sửa</button>
-      </div>
-      <div class="heading">Tài khoản</div>
-      <div v-if="user">
-        <p><strong>Tên người dùng:</strong> {{ user.user }}</p>
-        <p><strong>Vai trò:</strong> {{ user.role }}</p>
-      </div>
-      <div class="heading">Quản lý tài khoản</div>
-      <div>
-        <table>
-          <thead>
-            <tr>
-              <th>Tên người dùng</th>
-              <th>Vai trò</th>
-              <th>Hành động</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="account in accounts" :key="account._id">
-              <td>{{ account.user }}</td>
-              <td>{{ account.role }}</td>
-              <td>
-                <button @click="deleteAccount(account._id)" class="delete-button">Xóa</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="new-account">
-          <input v-model="newAccount.user" placeholder="Tên người dùng" />
-          <input v-model="newAccount.password" type="password" placeholder="Mật khẩu" />
-          <button @click="addAccount" class="add-button">Thêm tài khoản</button>
-        </div>
-      </div>
+  <div class="container">
+    <div class="heading">Địa chỉ nhận thư</div>
+    <br /><br />
+    <div v-if="editMode" class="input-group">
+      <input v-model="gmail" placeholder="Địa chỉ email" class="edit-input" />
+      <button @click="saveGmail" class="save-button">Lưu</button>
     </div>
-  </template>
-  
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        gmail: '',
-        editMode: false,
-        apiUrl: import.meta.env.VITE_API_URL,
-        user: null,
-        accounts: [],
-        newAccount: {
-          user: '',
-          password: '',
-        },
-      };
-    },
-    methods: {
-      async fetchGmail() {
-        try {
-          const response = await axios.get(`${this.apiUrl}/gmail`);
-          this.gmail = response.data.gmail;
-        } catch (error) {
-          console.error('Lấy địa chỉ email thất bại:', error);
-        }
-      },
-      async saveGmail() {
-        try {
-          await axios.put(`${this.apiUrl}/gmail/`, { gmail: this.gmail });
-          this.editMode = false;
-        } catch (error) {
-          console.error('Cập nhật địa chỉ email thất bại:', error);
-        }
-      },
-      toggleEdit() {
-        if (this.editMode) {
-          this.saveGmail();
-        } else {
-          this.editMode = true;
-        }
-      },
-      async fetchUser() {
-        try {
-          const response = await axios.get(`${this.apiUrl}/user/me`, {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-          });
-          this.user = response.data;
-        } catch (error) {
-          console.error('Lấy thông tin người dùng thất bại:', error);
-        }
-      },
-      async fetchAccounts() {
-        try {
-          const response = await axios.get(`${this.apiUrl}/user`, {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-          });
-          this.accounts = response.data;
-        } catch (error) {
-          console.error('Lấy danh sách tài khoản thất bại:', error);
-        }
-      },
-      async addAccount() {
-        try {
-          const response = await axios.post(`${this.apiUrl}/user`, this.newAccount, {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-          });
-          this.accounts.push(response.data);
-          this.newAccount = { user: '', password: '' };
-        } catch (error) {
-          console.error('Thêm tài khoản thất bại:', error);
-        }
-      },
-      async deleteAccount(id) {
-        try {
-          await axios.delete(`${this.apiUrl}/user/${id}`, {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`
-            }
-          });
-          this.accounts = this.accounts.filter(account => account._id !== id);
-        } catch (error) {
-          console.error('Xóa tài khoản thất bại:', error);
-        }
+    <div v-else class="input-group">
+      <span class="email-display">{{ gmail }}</span>
+      <button @click="toggleEdit" class="edit-button">Sửa</button>
+    </div>
+
+    <div class="new-user">
+      <div class="heading">Đăng ký tài khoản mới</div>
+      <div class="input-group">
+        <label for="username">Tên người dùng:</label>
+        <input v-model="username" id="username" type="text" placeholder="Nhập tên người dùng" class="edit-input" />
+      </div>
+      <div class="input-group">
+        <label for="password">Mật khẩu:</label>
+        <input v-model="password" id="password" type="password" placeholder="Nhập mật khẩu" class="edit-input" />
+      </div>
+      <div class="input-group">
+        <button @click="registerUser" class="add-button">Đăng ký</button>
+      </div>
+      <div v-if="message">{{ message }}</div>
+    </div>
+
+    <div v-if="users.length > 0">
+      <div class="heading">Danh sách người dùng</div>
+      <ul class="user-list">
+        <li v-for="user in users" :key="user._id" class="user-item">
+          <span class="user-name">{{ user.user }}</span>
+          <button @click="deleteUser(user._id)" class="delete-button">Xóa</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      gmail: '',
+      editMode: false,
+      username: '',
+      password: '',
+      role: 1,
+      apiUrl: import.meta.env.VITE_API_URL,
+      message: '',
+      users: [], // Mảng lưu danh sách người dùng có vai trò = 1
+    };
+  },
+  methods: {
+    async fetchGmail() {
+      try {
+        const response = await axios.get(`${this.apiUrl}/gmail`);
+        this.gmail = response.data.gmail;
+      } catch (error) {
+        console.error('Lấy địa chỉ email thất bại:', error);
       }
     },
-    mounted() {
-      this.fetchGmail();
-      this.fetchUser();
-      this.fetchAccounts();
-    }
-  };
-  </script>
-  
-  <style scoped>
-  .heading {
-    font-size: 30px;
-    color: #000000;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 0px;
-  }
-  .edit-input {
-    width: 300px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-bottom: 10px;
-  }
-  .email-display {
-    font-size: 20px;
-    margin-right: 20px;
-  }
-  .edit-button, .save-button, .delete-button, .add-button {
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 3px;
-  }
-  .edit-button:hover, .save-button:hover, .delete-button:hover, .add-button:hover {
-    background-color: #0056b3;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-  }
-  .new-account {
-    margin-top: 20px;
-  }
-  .new-account input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-right: 10px;
-  }
-  .new-account button {
-    padding: 10px 20px;
-    cursor: pointer;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 3px;
-  }
-  .new-account button:hover {
-    background-color: #218838;
-  }
-  </style>
-  
+    async saveGmail() {
+      try {
+        await axios.put(`${this.apiUrl}/gmail/`, { gmail: this.gmail });
+        this.editMode = false;
+      } catch (error) {
+        console.error('Cập nhật địa chỉ email thất bại:', error);
+      }
+    },
+    toggleEdit() {
+      this.editMode = !this.editMode;
+      if (!this.editMode) {
+        this.saveGmail();
+      }
+    },
+    async registerUser() {
+      try {
+        const response = await axios.post(`${this.apiUrl}/user/register`, {
+          user: this.username,
+          password: this.password,
+        });
+        this.message = response.data.message;
+        this.username = '';
+        this.password = '';
+        this.role = 1;
+        this.fetchUsersWithRole1();
+      } catch (error) {
+        console.error('Đăng ký tài khoản thất bại:', error);
+        this.message = 'Đăng ký tài khoản thất bại';
+      }
+    },
+    async fetchUsersWithRole1() {
+      try {
+        const response = await axios.get(`${this.apiUrl}/user/role/1`);
+        this.users = response.data;
+      } catch (error) {
+        console.error('Lấy danh sách người dùng thất bại:', error);
+      }
+    },
+    async deleteUser(userId) {
+      try {
+        await axios.delete(`${this.apiUrl}/user/${userId}`);
+        this.fetchUsersWithRole1();
+      } catch (error) {
+        console.error('Xóa người dùng thất bại:', error);
+      }
+    },
+  },
+  mounted() {
+    this.fetchGmail();
+    this.fetchUsersWithRole1();
+  },
+};
+</script>
+
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.heading {
+  font-size: 30px;
+  color: #000000;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.edit-input {
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+
+.email-display {
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.edit-button,
+.save-button,
+.delete-button,
+.add-button {
+  padding: 8px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.edit-button:hover,
+.save-button:hover,
+.delete-button:hover,
+.add-button:hover {
+  background-color: #0056b3;
+}
+
+.new-user {
+  margin-top: 20px;
+}
+
+.user-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-name {
+  font-weight: bold;
+}
+</style>

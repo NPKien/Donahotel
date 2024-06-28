@@ -100,6 +100,7 @@ const QuestionSchema = new mongoose.Schema({
     role: {
         type: Number,
         required: true,
+        default: 1,
     },
   });
   const GmailreceiveSchema = new mongoose.Schema({
