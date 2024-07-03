@@ -34,9 +34,9 @@
         <img width="360" height="250" src="./picture/dichvu.jpg" class="img-responsive">
         <div class="showcase-inner">
           <div>
-            <a target="_self" href="http://localhost:5173/dichvunhahang" class="custom-btn">
+            <div target="_self"  @click.prevent="redirectTodvnhPage()" class="custom-btn">
               Xem Chi Tiết
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -84,6 +84,7 @@
 <script>
 import axios from 'axios';
 import { redirectToPage } from './Loaiphong/redirectToPage';
+import { redirectToPageservice } from "./Dichvu/redirectToPageservice";
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 
@@ -92,7 +93,7 @@ export default {
     Splide,
     SplideSlide,
   },
-  mixins: [redirectToPage],
+  mixins: [redirectToPage, redirectToPageservice],
   data() {
     return {
       rooms: [],

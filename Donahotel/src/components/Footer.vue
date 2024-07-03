@@ -36,7 +36,6 @@
                   <p @click.prevent="redirectToIntroductionPage">Giới Thiệu</p>
                   <p @click.prevent="scrollToSection('footer')">Liên Hệ</p>
                   <p @click.prevent="scrollToSection('datphong')">Đặt Phòng</p>
-                  <p @click.prevent="redirectTovip1Page">PHÒNG VIP 1</p>
                   <p @click.prevent="redirectTodvnhPage">Dịch Vụ Nhà Hàng</p>
                 </div>
               </td>

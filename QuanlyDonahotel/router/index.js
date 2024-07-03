@@ -7,6 +7,7 @@ import AddTyperoom from '@/components/AddTyperoom.vue';
 import Dichvunhahang from '@/components/Dichvunhahang.vue';
 import QuestionList from '@/components/QuestionList.vue';
 import Config from '@/components/Config.vue';
+import Booking from '@/components/Booking.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -44,6 +45,12 @@ const router = createRouter({
           path: '/:idadmin/question',
           name: 'Question',
           component: QuestionList,
+          meta: { requiresAuth: true },
+        },
+        {
+          path: '/:idadmin/booking',
+          name: 'Booking',
+          component: Booking,
           meta: { requiresAuth: true },
         },
         {

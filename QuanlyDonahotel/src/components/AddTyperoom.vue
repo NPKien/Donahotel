@@ -73,8 +73,8 @@ data() {
 methods: {
   async addTyperoom() {
     if (!this.newImage) {
-      this.submitted = true; // Đánh dấu là đã submit form
-      return; // Không gửi yêu cầu nếu không có ảnh
+      this.submitted = true; 
+      return; 
     }
     try {
       const formData = new FormData();
@@ -100,7 +100,7 @@ methods: {
   },
   handleImageChange(event) {
     this.newImage = event.target.files[0];
-    this.errorMessage = ''; // Reset thông báo lỗi khi thay đổi ảnh
+    this.errorMessage = '';
   }
 }
 };

@@ -23,7 +23,7 @@ exports.addQuestion = async (req, res) => {
     }
 };
 
-// Cập nhật câu hỏi và câu trả lời
+
 exports.updateQuestion = async (req, res) => {
     try {
         const { id } = req.params;

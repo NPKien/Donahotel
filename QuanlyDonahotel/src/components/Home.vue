@@ -11,6 +11,9 @@
           <router-link :to="`/${idadmin}/question`" class="menu-link">Hỏi & Đáp</router-link>
         </div>
         <div class="menu-item">
+          <router-link :to="`/${idadmin}/booking`" class="menu-link">Danh sách đặt phòng</router-link>
+        </div>
+        <div class="menu-item">
           <router-link :to="`/${idadmin}/config`" class="menu-link">Khác</router-link>
         </div>
       </div>

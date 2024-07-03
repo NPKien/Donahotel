@@ -49,7 +49,7 @@ export default {
         const blob = new Blob([new Uint8Array(room.picture.data)], { type: 'image/jpeg' });
         return URL.createObjectURL(blob);
       }
-      return require('./picture/logo.png'); // Sử dụng require cho ảnh mặc định
+      return require('./picture/logo.png'); 
     },
     editRoom(type) {
       const idadmin = this.$route.params.idadmin;

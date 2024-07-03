@@ -4,7 +4,6 @@ import router from '../router'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import './assets/main.css';
 
 const app = createApp(App);
 

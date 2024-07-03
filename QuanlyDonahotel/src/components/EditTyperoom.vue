@@ -55,7 +55,7 @@ export default {
       newType: '',
       apiUrl: import.meta.env.VITE_API_URL,
       newImage: null,
-      errorMessage: '' // Biến để lưu trữ thông báo lỗi
+      errorMessage: '' 
     };
   },
   created() {
@@ -101,7 +101,7 @@ export default {
     },
     handleImageChange(event) {
       this.newImage = event.target.files[0];
-      this.errorMessage = ''; // Reset thông báo lỗi khi thay đổi ảnh
+      this.errorMessage = ''; 
     }
   }
 };

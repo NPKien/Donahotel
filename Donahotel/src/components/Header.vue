@@ -7,12 +7,12 @@
             <img src="./picture/menu.png" alt="" class="menu" @click="toggleMenu">
           </div>
           <div class="col-10 col-lg-3 d-flex justify-content-center justify-content-lg-start">
-            <a href="http://localhost:5173/">
+            <a href="">
               <img class="logo" src="./picture/logo.png" alt="Logo">
             </a>
           </div>
           <div :class="['col-4 col-lg d-flex justify-content-center', {'d-none': !showMenu && isMobile}]">
-            <a class="nav-link" style="background-color: yellowgreen;" href="http://localhost:5173/">Trang chủ</a>
+            <a class="nav-link" style="background-color: yellowgreen;" href="">Trang chủ</a>
           </div>
           <div :class="['col-4 col-lg d-flex justify-content-center', {'d-none': !showMenu && isMobile}]">
             <a class="nav-link" @click.prevent="scrollToSection('phong')">Phòng</a>

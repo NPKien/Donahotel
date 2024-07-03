@@ -45,3 +45,35 @@ exports.createBooking = async (req, res) => {
         res.status(500).json({ message: 'Đặt phòng thất bại. Vui lòng thử lại sau.' });
     }
 };
+exports.getAllBookings = async (req, res) => {
+    try {
+        const bookings = await Booking.find();
+        res.status(200).json(bookings);
+    } catch (error) {
+        console.error('Lấy danh sách đặt phòng thất bại:', error);
+        res.status(500).json({ message: 'Lấy danh sách đặt phòng thất bại. Vui lòng thử lại sau.' });
+    }
+};
+
+exports.deleteBooking = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const booking = await Booking.findByIdAndDelete(id);
+
+        if (!booking) {
+            return res.status(404).json({ message: 'Đặt phòng không tồn tại.' });
+        }
+
+        // Cập nhật số lượng phòng
+        const roomType = await Typeroom.findOne({ type: booking.loaiphong });
+        if (roomType) {
+            roomType.quantity += booking.soluong;
+            await roomType.save();
+        }
+
+        res.status(200).json({ message: 'Đã xóa đặt phòng thành công.' });
+    } catch (error) {
+        console.error('Xóa đặt phòng thất bại:', error);
+        res.status(500).json({ message: 'Xóa đặt phòng thất bại. Vui lòng thử lại sau.' });
+    }
+};
